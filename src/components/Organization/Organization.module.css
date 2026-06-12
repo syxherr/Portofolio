@@ -1,0 +1,59 @@
+.organization {
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-color);
+}
+
+.organization h2 {
+  padding-bottom: 4rem;
+}
+
+.organization h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.organization h3 {
+  font-size: 20px;
+  color: #edeef0;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.organization p {
+  font-size: 16px;
+  color: #d0d0d0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.organization ul {
+  font-size: 17px;
+  padding-left: 20px;
+}
+
+.organization ul li {
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.docBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 5px;
+  color: var(--second-bg-color);
+  letter-spacing: 0.1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: 0.5s ease;
+  box-shadow: 0 0 1rem var(--bg-color);
+  width: 230px;
+  text-align: center;
+}
+
+.docBtn:hover {
+  color: var(--text-color);
+  box-shadow: 0 0 1rem var(--main-color);
+}

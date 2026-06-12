@@ -1,0 +1,39 @@
+.contact {
+  justify-content: center;
+  min-height: 80vh;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.contactHeading {
+  text-align: left;
+  font-size: 4.5rem;
+  margin-top: 0;
+}
+
+.contact p {
+  font-size: 2rem;
+  color: #ababab;
+}
+
+.upperContainer {
+  margin-top: 1.3rem;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.contactRow h1 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  padding: 1%;
+}
+
+.contactIcon {
+  cursor: default;
+  width: 3%;
+  height: 3%;
+}

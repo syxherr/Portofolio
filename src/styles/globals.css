@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --bg-color: #0F0F0F;
+  --second-bg-color: #1d1d1f;
+  --text-color: #FFF;
+  --main-color: #8368FF;
+}
+
+html {
+  font-size: 60%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 10rem 12% 10rem;
+}
+
+span {
+  color: var(--main-color);
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  color: var(--second-bg-color);
+  letter-spacing: 0.1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: 0.5s ease;
+  box-shadow: 0 0 1rem var(--bg-color);
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: var(--text-color);
+  box-shadow: 0 0 1rem var(--main-color);
+}
+
+.heading {
+  text-align: center;
+  font-size: 4.5rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 991px) {
+  section {
+    padding: 7.5rem 5% 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}

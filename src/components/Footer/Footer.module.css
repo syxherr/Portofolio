@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 9%;
+}
+
+.footer p {
+  font-size: 1.6rem;
+}
+
+.upBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  color: var(--second-bg-color);
+  background: var(--main-color);
+  border-radius: 0.8rem;
+  transition: 0.3s ease-in-out;
+}
+
+.upBtn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px var(--main-color);
+}
+
+.upBtn i {
+  font-size: 2.4rem;
+  color: var(--second-bg-color);
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 2rem 3%;
+  }
+}

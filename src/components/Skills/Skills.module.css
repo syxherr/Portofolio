@@ -1,0 +1,49 @@
+.skills {
+  padding-bottom: 100px;
+  background-color: var(--second-bg-color);
+}
+
+.skills h2 {
+  margin-bottom: 4rem;
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.skillsBox {
+  background-color: var(--bg-color);
+  padding: 2rem 3rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: 0.5rem solid var(--bg-color);
+  transition: 0.5s ease;
+}
+
+.skillsBox:hover {
+  border-color: var(--main-color);
+  transform: scale(1.02);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.skillsBox img {
+  width: 100%;
+  border-radius: 2rem;
+}
+
+@media (max-width: 1285px) {
+  .skillsContainer {
+    padding-bottom: 7rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .skills {
+    padding-bottom: 7.5rem;
+  }
+}

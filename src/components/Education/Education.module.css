@@ -1,0 +1,143 @@
+.education {
+  padding: 100px 15px;
+  background: var(--second-bg-color);
+}
+
+.education h2 {
+  margin-bottom: 4rem;
+}
+
+.timelineItems {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.timelineItems::before {
+  content: '';
+  position: absolute;
+  margin-top: 10px;
+  width: 5px;
+  height: 70%;
+  background-color: var(--main-color);
+  left: calc(50% - 0px);
+}
+
+.timelineItem {
+  margin-bottom: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineItem:nth-child(odd) {
+  padding-right: calc(50% + 35px);
+  text-align: right;
+}
+
+.timelineItem:nth-child(even) {
+  padding-left: calc(50% + 35px);
+}
+
+.timelineDot {
+  height: 25px;
+  width: 25px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+  position: absolute;
+  left: calc(50% - 9.9px);
+  border-radius: 50%;
+  top: 3px;
+}
+
+.timelineDate {
+  font-size: 20px;
+  font-weight: 800;
+  color: #edeef0;
+  margin: 0 9px 17px;
+}
+
+.timelineContent {
+  background-color: #171414;
+  padding: 30px 40px;
+  border-radius: 4rem;
+  cursor: default;
+  transition: 0.3s ease-in-out;
+}
+
+.timelineContent:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--main-color);
+}
+
+.timelineContent h3 {
+  font-size: 20px;
+  color: #edeef0;
+  line-height: 22px;
+  font-weight: 300;
+}
+
+.timelineContent p {
+  font-size: 17px;
+  margin-bottom: 5px;
+  color: #edeef0;
+  font-weight: 500;
+}
+
+.timelineContent ul {
+  text-align: left;
+  font-size: 15px;
+  padding-left: 20px;
+}
+
+.timelineContent ul li {
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.certBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 5px;
+  color: var(--second-bg-color);
+  letter-spacing: 0.1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: 0.5s ease;
+  box-shadow: 0 0 1rem var(--bg-color);
+  width: 230px;
+  text-align: center;
+}
+
+.certBtn:hover {
+  color: var(--text-color);
+  box-shadow: 0 0 1rem var(--main-color);
+}
+
+@media (max-width: 991px) {
+  .timelineItems::before {
+    left: 10px;
+    height: 70%;
+  }
+
+  .timelineItem:nth-child(odd) {
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timelineItem:nth-child(odd),
+  .timelineItem:nth-child(even) {
+    padding-left: 37px;
+  }
+
+  .timelineDot {
+    left: 0;
+  }
+}
