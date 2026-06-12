@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Education from './components/Education/Education';
 import Organization from './components/Organization/Organization';
 import Projects from './components/Projects/Projects';
+import ProjectCarousel from './components/Projects/ProjectCarousel';
 import Tools from './components/Tools/Tools';
 import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
@@ -16,6 +17,7 @@ export default function App() {
       <Home />
       <Education />
       <Organization />
+      <ProjectCarousel />
       <Projects />
       <Tools />
       <Skills />
