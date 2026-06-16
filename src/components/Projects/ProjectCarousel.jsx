@@ -28,7 +28,7 @@ const projects = [
     tech: ["React", "Redux", "Zustand", "TypeScript"],
     img: "images/taskmanagement.png",
     github: "https://github.com/syxherr/TaskManagement.git",
-    link: " ",
+    link: "https://task-management-ten-kohl.vercel.app/",
   },
   {
     project: "Pokemon Arena",
