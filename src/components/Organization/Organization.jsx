@@ -7,11 +7,11 @@ export default function Organization() {
       <h4 className="sr-top">
         <span>Himpunan</span> Mahasiswa Teknologi Informatika
       </h4>
-      <h3>
+      <h3 className="sr-right">
         KOMINFO,<span> Creative Media</span> Staff
       </h3>
-      <p>Mar 2024 - Jan 2025</p>
-      <ul className="sr-left">
+      <p className="sr-bottom">Mar 2024 - Jan 2025</p>
+      <ul className="sr-right">
         <li>Managed TikTok and Instagram accounts of Himpunan Mahasiswa Teknologi Informatika (HIMATIF).</li>
         <li>Create promotional and information content through TikTok and Instagram.</li>
         <li>Planned, coordinated, and executed various organizational events, from initial planning to final evaluation.</li>

@@ -64,3 +64,88 @@
 .navbar a.active {
   color: #a78bfa;
 }
+
+/* ===== HAMBURGER ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  border-radius: 99px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.bar1Open {
+  transform: translateY(7px) rotate(45deg);
+}
+.bar2Open {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.bar3Open {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 55%; /* dari 65% jadi lebih kecil */
+    height: 100vh;
+    background: #0d0d14;
+    border-left: 0.5px solid rgba(167, 139, 250, 0.15);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; /* dari center jadi flex-start (pojok atas) */
+    padding: 6rem 2rem 3rem; /* padding atas besar biar ada jarak dari X button */
+    gap: 0;
+    transition: right 0.3s ease;
+    z-index: 100;
+    display: flex;
+  }
+
+  .navbar.open {
+    right: 0;
+  }
+
+  .navbar a {
+    font-size: 1.8rem;
+    margin-left: 0;
+    margin-bottom: 2rem; /* jarak antar link lebih kecil */
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 0;
+  }
+
+  .navbar a.active {
+    color: #a78bfa;
+  }
+
+  .navbar a::after {
+    display: none;
+  }
+}

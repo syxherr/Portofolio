@@ -10,3 +10,18 @@
   color: #fff !important;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
 }
+
+@media (max-width: 768px) {
+  .heroText {
+    font-size: 4rem !important;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText {
+    font-size: 3rem !important;
+    text-align: center;
+  }
+}

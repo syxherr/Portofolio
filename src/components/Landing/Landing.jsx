@@ -145,7 +145,8 @@ export default function Landing({ onContinue }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ position: "absolute", textAlign: "center" }}
+                style={{ position: "absolute", textAlign: "center", padding: "0 2rem", // tambah ini
+    width: "100%", }}
               >
                 <BlurText
                   text="What I've Been Building"

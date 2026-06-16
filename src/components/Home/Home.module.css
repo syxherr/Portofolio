@@ -269,15 +269,21 @@
   .profileBadge, .profileBadgeTop {
     display: none;
   }
+  .textType {
+    min-width: 25rem;
+  }
 }
 
 .homeContent h3 {
   font-size: 3.2rem;
   font-weight: 700;
+  padding: 1rem;
+    min-height: 4rem; /* tambah ini biar tinggi tetap */
+
 }
 
 .textType {
-  /* kosong atau hapus font-size di sini */
+  min-width: 28rem; /* lebar minimum sesuai teks terpanjang */
 }
 
 .textType :global(.text-type__content) {
@@ -286,4 +292,17 @@
 
 .textType :global(.text-type__cursor) {
   color: var(--main-color);
+}
+
+@media (max-width: 480px) {
+
+
+  .homeContent p {
+    font-size: 1.5rem;
+    margin-right: 1.9rem;
+  }
+  .textType {
+    min-width: 25rem;
+  }
+
 }
