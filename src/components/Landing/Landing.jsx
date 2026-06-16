@@ -145,7 +145,7 @@ export default function Landing({ onContinue }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ position: "absolute", textAlign: "center", padding: "0 2rem", // tambah ini
+                style={{ position: "absolute", textAlign: "center", // tambah ini
     width: "100%", }}
               >
                 <BlurText
@@ -158,7 +158,7 @@ export default function Landing({ onContinue }) {
                 <motion.p
                   delay={2000}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  style={{ fontSize: "20px", marginTop: "3rem" }}
+                  style={{ fontSize: "17px", marginTop: "1rem" }}
                 >
                   Click to Continue
                 </motion.p>
