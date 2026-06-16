@@ -21,7 +21,7 @@ const projects = [
     roleColor: "react",
     company: null,
     companyColor: null,
-    status: "On Progress",
+    status: null,
     statusColor: "onprogress",
     tagline: "Task management with drag or drop like Kanban board.",
     desc: "A personal task manager that helps you stay on top of your work. Organize tasks by priority, track progress across columns, star what matters most, and undo any mistake in one click.",
