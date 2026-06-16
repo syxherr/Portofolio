@@ -9,7 +9,7 @@ const CONTACTS = [
 export default function Contact() {
   return (
     <section className={styles.contact} id="contact">
-      <h2 className={`${styles.contactHeading} sr-left`}>
+      <h2 className={`${styles.contactHeading} sr-top`}>
         Get in <span>touch!</span>
       </h2>
       <p className="sr-right">

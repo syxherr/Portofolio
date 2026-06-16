@@ -15,10 +15,6 @@
   margin-top: 1rem;
 }
 
-.homeContent h3 {
-  font-size: 3.2rem;
-  font-weight: 700;
-}
 
 .homeContent h4 {
   font-size: 3.2rem;
@@ -35,13 +31,26 @@
   font-size: 1.8rem;
   margin-top: 1rem;
   margin-right: 10rem;
+  text-align: justify;
 }
 
-.profileImg img {
+.profileImg {
   position: relative;
-  width: 20vw;
-  border-radius: 5rem;
-  box-shadow: 0 0 25px var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15rem;
+}
+
+.pc-card {
+  width: 280px;  /* default biasanya 320px atau lebih */
+  height: 380px; /* sesuaikan */
+}
+
+.pc-card-wrapper {
+  width: 340px;
+  height: 440px;
+  max-width: 100%;
 }
 
 .sosmed {
@@ -59,22 +68,53 @@
   width: 5rem;
   height: 5rem;
   background: var(--second-bg-color);
-  border-radius: 50%;
+  border-radius: 20%;
   font-size: 3rem;
-  color: var(--main-color);
-  margin: 0.5rem 1rem 1.5rem;
+  color: #787878;
+  margin: 0.5rem 0.7rem 1.5rem 0.7rem;
   transition: 0.3s ease-in-out;
 }
 
 .sosmed a:hover {
-  background: var(--main-color);
-  color: var(--second-bg-color);
+  color: var(--main-color);
   transform: scale(1.02);
-  box-shadow: 0 0 1rem var(--main-color);
+  border-color: var(--main-color);
+  box-shadow: 0 0 0.7rem var(--main-color);
 }
 
 .tombol {
   margin-top: 0.5rem;
+}
+.curtainBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.curtainBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: white;
+  transform: translateX(-100%) skewX(-30deg);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.curtainBtn:hover::before {
+  transform: translateX(0) skewX(-30deg);
+}
+
+.curtainText {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.curtainBtn:hover .curtainText {
+  color: black;
 }
 
 @media (max-width: 991px) {
@@ -88,6 +128,7 @@
 @media (max-width: 768px) {
   .home {
     flex-direction: column-reverse;
+    align-items: flex-start;
     margin-bottom: 7.5rem;
   }
 
@@ -104,9 +145,145 @@
     margin-right: 0;
   }
 
+  .profileImg {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   .profileImg img {
     width: 45vw;
     border-radius: 50%;
     margin-bottom: 8rem;
   }
+}
+
+.profileImg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImg img {
+  position: relative;
+  width: 20vw;
+  border-radius: 2rem;
+  }
+
+
+/* Badge floating di foto */
+.profileBadge {
+  position: absolute;
+  bottom: -1rem;
+  right: -1.5rem;
+  background: rgba(13, 13, 20, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.profileBadge span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+.profileBadge p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Badge atas kiri */
+.profileBadgeTop {
+  position: absolute;
+  top: -1rem;
+  left: -1.5rem;
+  background: rgba(13, 13, 20, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.profileBadgeTop i {
+  font-size: 1.6rem;
+  color: #a78bfa;
+}
+
+.profileBadgeTop span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Dot animasi */
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: #a78bfa;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Badge "open to work" di atas nama */
+.openBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #a78bfa;
+  font-size: 1.4rem;
+  padding: 0.3rem 1.2rem;
+  border-radius: 99px;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .profileImg {
+    justify-content: flex-start;
+    margin-top: 0.9rem;
+  }
+
+  .profileImg img {
+    width: 45vw;
+    align-items: flex-start;
+    border-radius: 10%;
+    margin-bottom: 6rem;
+  }
+  .profileBadge, .profileBadgeTop {
+    display: none;
+  }
+}
+
+.homeContent h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.textType {
+  /* kosong atau hapus font-size di sini */
+}
+
+.textType :global(.text-type__content) {
+  color: var(--main-color);
+}
+
+.textType :global(.text-type__cursor) {
+  color: var(--main-color);
 }

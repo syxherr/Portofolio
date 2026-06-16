@@ -1,80 +1,66 @@
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 6%;
+  background: rgba(13, 13, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(167, 139, 250, 0.12);
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  padding: 1.5rem 12% 1rem;
-  background: var(--bg-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 100;
-  transition: border-bottom 0.3s;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .header.sticky {
-  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+  background: rgba(13, 13, 20, 0.92);
+  border-bottom-color: rgba(167, 139, 250, 0.2);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
 }
 
 .logo {
   font-size: 2rem;
-  color: var(--text-color);
-  font-weight: 600;
-  cursor: default;
-}
-
-.menuIcon {
-  font-size: 3.6rem;
-  color: var(--text-color);
-  display: none;
-  cursor: pointer;
-  background: none;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
 }
 
 .navbar a {
-  font-size: 1.7rem;
-  color: var(--text-color);
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
   margin-left: 3rem;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
-.navbar a:hover,
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #a78bfa;
+  border-radius: 99px;
+  transition: width 0.25s ease;
+}
+
+.navbar a:hover {
+  color: #a78bfa;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
 .navbar a.active {
-  color: var(--main-color);
-}
-
-@media (max-width: 991px) {
-  .header {
-    padding: 1rem 3%;
-  }
-}
-
-@media (max-width: 768px) {
-  .menuIcon {
-    display: block;
-  }
-
-  .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 5%;
-    background: var(--bg-color);
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    display: none;
-  }
-
-  .navbar.open {
-    display: block;
-  }
-
-  .navbar a {
-    display: block;
-    font-size: 2rem;
-    padding: 0.5rem 0;
-    color: #edeef0;
-    margin-left: 0;
-  }
+  color: #a78bfa;
 }

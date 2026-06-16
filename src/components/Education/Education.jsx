@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import styles from './Education.module.css';
 
 const EDUCATION_DATA = [
@@ -40,10 +41,11 @@ const EDUCATION_DATA = [
 ];
 
 export default function Education() {
+  useScrollReveal();
   return (
     <section className={styles.education} id="education">
       <h2 className="heading sr-top">Education</h2>
-      <div className={styles.timelineItems}>
+      <div className={`${styles.timelineItems} sr-top`}>
         {EDUCATION_DATA.map((edu, i) => (
           <div className={`${styles.timelineItem} sr-bottom`} key={i}>
             <div className={styles.timelineDot} />
@@ -61,7 +63,7 @@ export default function Education() {
                 {edu.items.map((item, j) => <li key={j}>{item}</li>)}
               </ul>
               {edu.cert && (
-                <a href={edu.cert.href} target="_blank" rel="noreferrer" className={styles.certBtn}>
+                <a href={edu.cert.href} target="_blank" rel="noreferrer" className={`${styles.certBtn} cursor-target`}>
                   {edu.cert.label}
                 </a>
               )}

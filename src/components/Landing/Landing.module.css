@@ -1,0 +1,12 @@
+.heroText {
+  font-size: 10rem;
+  font-weight: 900;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.heroText span {
+  color: #fff !important;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+}
