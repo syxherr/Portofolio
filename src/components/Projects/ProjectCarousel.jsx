@@ -27,7 +27,7 @@ const projects = [
     desc: "A personal task manager that helps you stay on top of your work. Organize tasks by priority, track progress across columns, star what matters most, and undo any mistake in one click.",
     tech: ["React", "Redux", "Zustand", "TypeScript"],
     img: "images/taskmanagement.png",
-    github: " ",
+    github: "https://github.com/syxherr/TaskManagement.git",
     link: " ",
   },
   {
