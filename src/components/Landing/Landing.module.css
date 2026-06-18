@@ -3,11 +3,14 @@
   font-weight: 900;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   color: #fff;
+  text-align: center;
+  justify-content: center;
   line-height: 1.1;
 }
 
 .heroText span {
   color: #fff !important;
+  
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
 }
 
