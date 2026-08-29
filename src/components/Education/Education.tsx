@@ -1,7 +1,16 @@
 import useScrollReveal from '../../hooks/useScrollReveal';
 import styles from './Education.module.css';
 
-const EDUCATION_DATA = [
+type EducationItem = {
+  tag: string;
+  date: string;
+  institution: string;
+  degree: React.ReactNode;
+  items: string[];
+  cert?: { href: string; label: string };
+};
+
+const EDUCATION_DATA: EducationItem[] = [
   {
     tag: 'College',
     date: 'Sep 2021 - Nov 2025',

@@ -15,11 +15,11 @@ import { useState } from 'react';
 
 export default function App() {
   const [showLanding, setShowLanding] = useState(() => {
-    return !sessionStorage.getItem('hasVisited');
+    return !localStorage.getItem('hasVisited');
   })
 
   const handleContinue = () => {
-    sessionStorage.setItem('hasVisited', 'true');
+    localStorage.setItem('hasVisited', 'true');
     setShowLanding(false);
   };
 
@@ -29,14 +29,14 @@ export default function App() {
 
   return (
     <>
-    {/* <TargetCursor
+      {/* <TargetCursor
         spinDuration={2}
         hideDefaultCursor={false}
         parallaxOn
         hoverDuration={0.2}
       /> */}
 
-    <ScrollIndicator />
+      <ScrollIndicator />
       <Header />
       <Home />
       <Education />

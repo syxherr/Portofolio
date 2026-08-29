@@ -1,11 +1,28 @@
 import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
+import type { ReactNode, MouseEvent } from 'react';
 import './TiltedCard.css';
 
 const springValues = {
   damping: 30,
   stiffness: 100,
   mass: 2
+};
+
+type TiltedCardProps = {
+  imageSrc: string;
+  altText?: string;
+  captionText?: string;
+  containerHeight?: string;
+  containerWidth?: string;
+  imageHeight?: string;
+  imageWidth?: string;
+  scaleOnHover?: number;
+  rotateAmplitude?: number;
+  showMobileWarning?: boolean;
+  showTooltip?: boolean;
+  overlayContent?: ReactNode;
+  displayOverlayContent?: boolean;
 };
 
 export default function TiltedCard({
@@ -22,11 +39,11 @@ export default function TiltedCard({
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false
-}) {
-  const ref = useRef(null);
+}: TiltedCardProps) {
+  const ref = useRef<HTMLElement>(null);
 
-  const x = useMotionValue();
-  const y = useMotionValue();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);
@@ -39,7 +56,7 @@ export default function TiltedCard({
 
   const [lastY, setLastY] = useState(0);
 
-  function handleMouse(e) {
+  function handleMouse(e: MouseEvent<HTMLElement>) {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();

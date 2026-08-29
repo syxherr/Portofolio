@@ -58,7 +58,6 @@ export default function Header() {
             const id = href.replace('#', '');
             return (
               <a
-              
                 key={href}
                 href={href}
                 className={activeSection === id ? styles.active : ''}

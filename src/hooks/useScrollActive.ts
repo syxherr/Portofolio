@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useScrollActive(sectionIds) {
+export function useScrollActive(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 

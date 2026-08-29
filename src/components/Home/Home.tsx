@@ -3,7 +3,7 @@ import TextType from "../../styles/Animation/TextType";
 import { FaInstagram } from "react-icons/fa6";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
-import TiltedCard from "../ui/TiltedCard";
+import TiltedCard from "../../ui/TiltedCard";
 import useScrollReveal from "../../hooks/useScrollReveal";
 
 export default function Home() {

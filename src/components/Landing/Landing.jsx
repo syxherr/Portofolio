@@ -9,40 +9,37 @@ export default function Landing({ onContinue }) {
   const [step, setStep] = useState(-1);
   const [exiting, setExiting] = useState(false);
 
- useEffect(() => {
-  if (step === -1) {
-    // "> Initializing..." = 17 char, "> Loading Projects..." = 21 char
-    // typing: (17 + 21) * 135ms = ~5130ms
-    // delete antar kalimat: 17 * 75ms = ~1275ms
-    // pause: 2 * 3000ms = 6000ms (pauseDuration di awal & antar kalimat)
-    // total ≈ 5130 + 1275 + 6000 ≈ 12400ms, kasih buffer
-    const timer = setTimeout(() => setStep(0), 15500);
-    return () => clearTimeout(timer);
-  }
-  if (step === 0) {
-    const timer = setTimeout(() => setStep(1), 5000);
-    return () => clearTimeout(timer);
-  }
-  if (step === 1) {
-    const timer = setTimeout(() => setStep(2), 5000);
-    return () => clearTimeout(timer);
-  }
-  if (step === 2) {
-    const timer = setTimeout(() => setStep(3), 5000);
-    return () => clearTimeout(timer);
-  }
-}, [step]);
+  useEffect(() => {
+    if (step === -1) {
+      const timer = setTimeout(() => setStep(0), 15500);
+      return () => clearTimeout(timer);
+    }
+    if (step === 0) {
+      const timer = setTimeout(() => setStep(1), 5000);
+      return () => clearTimeout(timer);
+    }
+    if (step === 1) {
+      const timer = setTimeout(() => setStep(2), 5000);
+      return () => clearTimeout(timer);
+    }
+    if (step === 2) {
+      const timer = setTimeout(() => setStep(3), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [step]);
 
+  // dulu ada "if (step !== 3) return;" di sini, sekarang dihapus
+  // jadi klik kapan aja (step berapapun) langsung trigger ini
   const handleClick = () => {
-    if (step !== 3) return;
     setExiting(true);
     setTimeout(() => {
       onContinue();
-    }, 3000);
+    }, 300); // dipercepat dari 3000ms, biar pas diklik langsung berasa responsif
   };
 
   return (
     <div
+      onClick={handleClick} // <- dipindah ke sini, div PALING LUAR
       style={{
         width: "100%",
         height: "100vh",
@@ -52,9 +49,10 @@ export default function Landing({ onContinue }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        cursor: "pointer", // biar user tau ini bisa diklik dari awal
       }}
     >
-      {/* Step -1: TextType loading sequence, background full hitam */}
+      {/* Step -1: sekarang ikut bisa diklik karena ada di dalam div yang onClick-nya di luar */}
       {step === -1 && (
         <TextType
           text={["> Initializing...", "> Loading Projects..."]}
@@ -69,13 +67,11 @@ export default function Landing({ onContinue }) {
         />
       )}
 
-      {/* Step 0+: container fade in (termasuk SideRays) */}
       {step >= 0 && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: exiting ? 0 : 1 }}
-          transition={{ duration: 3 }}
-          onClick={handleClick}
+          transition={{ duration: 0.3 }}
           style={{
             width: "100%",
             height: "100%",
@@ -83,7 +79,6 @@ export default function Landing({ onContinue }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            cursor: step === 3 ? "pointer" : "default",
           }}
         >
           <SideRays
@@ -145,8 +140,11 @@ export default function Landing({ onContinue }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ position: "absolute", textAlign: "center", // tambah ini
-    width: "100%", }}
+                style={{
+                  position: "absolute",
+                  textAlign: "center",
+                  width: "100%",
+                }}
               >
                 <BlurText
                   text="What I've Been Building"

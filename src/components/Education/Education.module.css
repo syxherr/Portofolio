@@ -125,7 +125,7 @@
 @media (max-width: 991px) {
   .timelineItems::before {
     left: 10px;
-    height: 68%;
+    height: 72%;
   }
 
   .timelineItem:nth-child(odd) {

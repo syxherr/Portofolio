@@ -1,8 +1,33 @@
 'use client';
 
 import { useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
+import type { ElementType } from 'react';
 import { gsap } from 'gsap';
 import './TextType.css';
+
+type VariableSpeed = { min: number; max: number };
+
+type TextTypeProps = {
+  text: string | string[];
+  as?: ElementType;
+  typingSpeed?: number;
+  initialDelay?: number;
+  pauseDuration?: number;
+  deletingSpeed?: number;
+  loop?: boolean;
+  className?: string;
+  showCursor?: boolean;
+  hideCursorWhileTyping?: boolean;
+  cursorCharacter?: string;
+  cursorClassName?: string;
+  cursorBlinkDuration?: number;
+  textColors?: string[];
+  variableSpeed?: VariableSpeed;
+  onSentenceComplete?: (text: string, index: number) => void;
+  startOnVisible?: boolean;
+  reverseMode?: boolean;
+  [key: string]: unknown; // buat nampung sisa props HTML lain (...props)
+};
 
 const TextType = ({
   text,
@@ -24,14 +49,14 @@ const TextType = ({
   startOnVisible = false,
   reverseMode = false,
   ...props
-}) => {
+}: TextTypeProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(!startOnVisible);
-  const cursorRef = useRef(null);
-  const containerRef = useRef(null);
+  const cursorRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
 
   const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
 
@@ -80,7 +105,7 @@ const TextType = ({
   useEffect(() => {
     if (!isVisible) return;
 
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode ? currentText.split('').reverse().join('') : currentText;
 
