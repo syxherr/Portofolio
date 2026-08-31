@@ -21,7 +21,7 @@
   position: absolute;
   margin-top: 10px;
   width: 5px;
-  height: 70%;
+  height: 72%;
   background-color: var(--main-color);
   left: calc(50% - 0px);
 }
@@ -125,7 +125,7 @@
 @media (max-width: 991px) {
   .timelineItems::before {
     left: 10px;
-    height: 72%;
+    height: 70%;
   }
 
   .timelineItem:nth-child(odd) {
@@ -140,5 +140,11 @@
 
   .timelineDot {
     left: 0;
+  }
+
+  @media (max-width: 678px) {
+    .timelineItems::before {
+      height: 72%;
+    }
   }
 }

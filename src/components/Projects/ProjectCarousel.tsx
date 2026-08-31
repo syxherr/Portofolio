@@ -1,6 +1,8 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { GitHubCalendar } from "react-github-calendar";
 import { Autoplay, Navigation } from "swiper/modules";
+import type { Swiper as SwiperCore } from "swiper";
 import {
   ChevronsRight,
   ChevronsLeft,
@@ -13,7 +15,25 @@ import "swiper/css/navigation";
 import styles from "./ProjectCarousel.module.css";
 import useScrollReveal from "../../hooks/useScrollReveal";
 
-const projects = [
+
+type Project = {
+  project: string;
+  category: string;
+  role: string;
+  roleColor: string;
+  company: string | null;
+  companyColor: string | null;
+  status: string | null;
+  statusColor: string | null;
+  tagline: string;
+  desc: string;
+  tech: string[];
+  img: string;
+  github: string | null;
+  link: string | null;
+};
+
+const projects: Project[] = [
   {
     project: "Task Management",
     category: "Front-End",
@@ -113,7 +133,12 @@ const projects = [
   },
 ];
 
-function CardContent({ p, progressRef }) {
+type CardContentProps = {
+  p: Project;
+  progressRef: (el: HTMLDivElement | null) => void;
+};
+
+function CardContent({ p, progressRef }: CardContentProps) {
   return (
     <>
       <div className={styles.imgArea}>
@@ -124,8 +149,8 @@ function CardContent({ p, progressRef }) {
         )}
         <div className={styles.imgOverlay}>
           {p.status && (
-            <span className={`${styles.badgeBeta} ${styles[p.statusColor]}`}>
-              <span className={`${styles.dot} ${styles[p.statusColor]}`} />
+            <span className={`${styles.badgeBeta} ${styles[p.statusColor ?? ""]}`}>
+              <span className={`${styles.dot} ${styles[p.statusColor ?? ""]}`} />
               {p.status}
             </span>
           )}
@@ -146,7 +171,7 @@ function CardContent({ p, progressRef }) {
             )}
             {p.company && (
               <span
-                className={`${styles.metaBadge} ${styles[p.companyColor] ?? ""}`}
+                className={`${styles.metaBadge} ${styles[p.companyColor ?? ""] ?? ""}`}
               >
                 {p.company}
               </span>
@@ -221,18 +246,17 @@ function CardContent({ p, progressRef }) {
     </>
   );
 }
-
 export default function ProjectCarousel() {
   useScrollReveal();
   const [filter, setFilter] = useState("All");
   const [current, setCurrent] = useState(0);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const swiperRef = useRef(null);
-  const progressRefs = useRef([]);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperCore | null>(null);
+  const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const categories = useMemo(
-    () => ["All", ...new Set(projects.map((p) => p.category))],
+    () => ["My Activity", "All", ...new Set(projects.map((p) => p.category))],
     [],
   );
 
@@ -244,10 +268,11 @@ export default function ProjectCarousel() {
     [filter],
   );
 
-  const handleFilter = useCallback((cat) => {
+  const handleFilter = useCallback((cat: string) => {
     setFilter(cat);
     setCurrent(0);
   }, []);
+
 
   return (
     <section className={styles.home} id="project">
@@ -267,85 +292,104 @@ export default function ProjectCarousel() {
           ))}
         </div>
 
-        <div className={`${styles.cardWrapper} sr-bottom`}>
-          <button
-            ref={prevRef}
-            className={`${styles.navLeft} sr-left`}
-            aria-label="Previous"
-          >
-            <ChevronsLeft size={40} />
-          </button>
+        {filter === "My Activity" ? (
+          <div className={`${styles.activityWrapper} sr-bottom`}>
+            <div className={styles.activityCard}>
+              <GitHubCalendar
+                username="syxherr"
+                colorScheme="dark"
+                theme={{
+                  dark: ["#1d1d1f", "#c9b8f5", "#a78bfa", "#8b5cf6", "#6d28d9"],
+                }}
+                blockSize={12}
+                blockMargin={4}
+                fontSize={13}
+              />
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className={`${styles.cardWrapper} sr-bottom`}>
+              <button
+                ref={prevRef}
+                className={`${styles.navLeft} sr-left`}
+                aria-label="Previous"
+              >
+                <ChevronsLeft size={40} />
+              </button>
 
-          <Swiper
-            key={filter}
-            modules={[Autoplay, Navigation]}
-            slidesPerView={1}
-            loop={false}
-            speed={1500}
-            spaceBetween={25}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-              setTimeout(() => {
-                if (swiper.navigation) {
-                  swiper.params.navigation.prevEl = prevRef.current;
-                  swiper.params.navigation.nextEl = nextRef.current;
-                  swiper.navigation.init();
-                  swiper.navigation.update();
-                }
-              }, 0);
-            }}
-            onSlideChange={(swiper) => {
-              setCurrent(swiper.activeIndex);
-              progressRefs.current.forEach((el) => {
-                if (el) el.style.width = "0%";
-              });
-            }}
-            onAutoplayTimeLeft={(_, __, percentage) => {
-              const idx = swiperRef.current?.activeIndex ?? 0;
-              const el = progressRefs.current[idx];
-              if (el) el.style.width = `${(1 - percentage) * 100}%`;
-            }}
-            className={styles.slideTrack}
-          >
-            {list.map((p, i) => (
-              <SwiperSlide key={`${filter}-${i}`}>
-                <div className={styles.card}>
-                  <CardContent
-                    p={p}
-                    progressRef={(el) => (progressRefs.current[i] = el)}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              <Swiper
+                key={filter}
+                modules={[Autoplay, Navigation]}
+                slidesPerView={1}
+                loop={false}
+                speed={1500}
+                spaceBetween={25}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                onSwiper={(swiper: SwiperCore) => {
+                  swiperRef.current = swiper;
+                  setTimeout(() => {
+                    if (swiper.navigation) {
+                      (swiper.params.navigation as any).prevEl = prevRef.current;
+                      (swiper.params.navigation as any).nextEl = nextRef.current;
+                      swiper.navigation.init();
+                      swiper.navigation.update();
+                    }
+                  }, 0);
+                }}
+                onSlideChange={(swiper: SwiperCore) => {
+                  setCurrent(swiper.activeIndex);
+                  progressRefs.current.forEach((el) => {
+                    if (el) el.style.width = "0%";
+                  });
+                }}
+                onAutoplayTimeLeft={(_, __, percentage) => {
+                  const idx = swiperRef.current?.activeIndex ?? 0;
+                  const el = progressRefs.current[idx];
+                  if (el) el.style.width = `${(1 - percentage) * 100}%`;
+                }}
+                className={styles.slideTrack}
+              >
+                {list.map((p, i) => (
+                  <SwiperSlide key={`${filter}-${i}`}>
+                    <div className={styles.card}>
+                      <CardContent
+                        p={p}
+                        progressRef={(el) => (progressRefs.current[i] = el)}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
 
-          <button
-            ref={nextRef}
-            className={`${styles.navRight} sr-right`}
-            aria-label="Next"
-          >
-            <ChevronsRight size={40} />
-          </button>
-        </div>
+              <button
+                ref={nextRef}
+                className={`${styles.navRight} sr-right`}
+                aria-label="Next"
+              >
+                <ChevronsRight size={40} />
+              </button>
+            </div>
 
-        <div className={`${styles.dots} sr-top`}>
-          {list.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dotBtn} ${i === current ? styles.dotActive : ""}`}
-              onClick={() => {
-                swiperRef.current?.slideTo(i);
-                setCurrent(i);
-              }}
-              aria-label={`Project ${i + 1}`}
-            />
-          ))}
-        </div>
+            <div className={`${styles.dots} sr-top`}>
+              {list.map((_, i) => (
+                <button
+                  key={i}
+                  className={`${styles.dotBtn} ${i === current ? styles.dotActive : ""}`}
+                  onClick={() => {
+                    swiperRef.current?.slideTo(i);
+                    setCurrent(i);
+                  }}
+                  aria-label={`Project ${i + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

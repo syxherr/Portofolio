@@ -6,12 +6,13 @@ import { useScrollDirection } from '../../hooks/useScrollDirection';
 const NAV_LINKS = [
   { href: '#home', label: 'About' },
   { href: '#education', label: 'Education' },
-  { href: '#organization', label: 'Organization' },
+  { href: '#experience', label: 'Experience' },
+  // { href: '#organization', label: 'Organization' },
   { href: '#project', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ];
 
-const SECTION_IDS = ['home', 'education', 'organization', 'project', 'tools', 'skills', 'contact'];
+const SECTION_IDS = ['home', 'education', 'experience', 'project', 'tools', 'skills', 'contact'];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

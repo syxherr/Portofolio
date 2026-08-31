@@ -22,6 +22,8 @@ const EDUCATION_DATA: EducationItem[] = [
       'Programming languages: Kotlin, HTML, CSS, Java, Python, C/C++.',
       'Courses: Database, Web Development, Android Development, Cyber Security, Computer Networks, & Internet of Things (IoT).',
     ],
+    cert: { href: 'Surat Keputusan.pdf', label: 'Organization Doc' },
+
   },
   {
     tag: 'Kampus Merdeka',

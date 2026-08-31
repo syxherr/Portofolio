@@ -1,0 +1,51 @@
+.experience {
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-color);
+}
+
+.experience h2 {
+  padding-bottom: 4rem;
+}
+
+.item {
+  margin-bottom: 3rem;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.experience h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.experience h3 {
+  font-size: 20px;
+  color: #edeef0;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.experience p {
+  font-size: 16px;
+  color: #d0d0d0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.experience ul {
+  font-size: 17px;
+  padding-left: 20px;
+}
+
+.experience ul li {
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.presentHighlight {
+  color: #a78bfa;
+  font-weight: 700;
+}

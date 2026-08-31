@@ -8,7 +8,7 @@ export default function useScrollReveal() {
       distance: "80px",
       duration: 2000,
       delay: 200,
-      reset: true,
+      reset: false,
       viewFactor: 0.1,
     });
 

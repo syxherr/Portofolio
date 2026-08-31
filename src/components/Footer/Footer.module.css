@@ -1,9 +1,12 @@
+/* SESUDAH */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 9%;
+  padding: 2rem 8%;
+  background: var(--second-bg-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer p {
@@ -34,5 +37,19 @@
 @media (max-width: 991px) {
   .footer {
     padding: 2rem 3%;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    text-align: center;
+    padding: 2rem 5%;
+  }
+
+  .footer p {
+    font-size: 1.3rem;
   }
 }

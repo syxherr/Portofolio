@@ -5,7 +5,11 @@ import BlurText from "../../styles/Animation/BlurText";
 import styles from "./Landing.module.css";
 import TextType from "../../styles/Animation/TextType";
 
-export default function Landing({ onContinue }) {
+type LandingProps = {
+  onContinue: () => void;
+};
+
+export default function Landing({ onContinue }: LandingProps) {
   const [step, setStep] = useState(-1);
   const [exiting, setExiting] = useState(false);
 
@@ -152,9 +156,8 @@ export default function Landing({ onContinue }) {
                   animateBy="words"
                   direction="top"
                   className={styles.heroText}
-                />
+                />  
                 <motion.p
-                  delay={2000}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   style={{ fontSize: "17px", marginTop: "1rem" }}
                 >

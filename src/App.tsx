@@ -2,11 +2,9 @@ import './styles/globals.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Education from './components/Education/Education';
-import Organization from './components/Organization/Organization';
-// import Projects from './components/Projects/Projects';
+// import Organization from './components/Organization/Organization';
 import Projects from './components/Projects/ProjectCarousel';
-import Tools from './components/Tools/Tools';
-import Skills from './components/Skills/Skills';
+import Experience from './components/Experience/Experience';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollIndicator from './styles/Animation/ScrollIndicator';
@@ -29,21 +27,13 @@ export default function App() {
 
   return (
     <>
-      {/* <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor={false}
-        parallaxOn
-        hoverDuration={0.2}
-      /> */}
-
       <ScrollIndicator />
       <Header />
       <Home />
       <Education />
-      <Organization />
+      <Experience />
+      {/* <Organization /> */}
       <Projects />
-      {/* <Tools />
-      <Skills /> */}
       <Contact />
       <Footer />
     </>
