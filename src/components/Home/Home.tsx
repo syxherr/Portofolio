@@ -27,7 +27,7 @@ useScrollReveal();
           <TextType
             as="span"
             className={styles.textType}
-            text={["Front-End Development", "UI/UX Designer"]}
+            text={["Front-End Developer", "UI/UX Designer"]}
             typingSpeed={125}
             pauseDuration={2500}
             showCursor
@@ -43,7 +43,7 @@ useScrollReveal();
           a strong passion for <span>Technology</span> and <span>Design</span>.
           <br />
           <br />
-          Skilled in UI/UX and Front-End Development. By leveraging my skills, I
+          Skilled in Web Development and UI/UX. By leveraging my skills, I
           am ready to contribute and give my best results.
           <br />
           <br />
