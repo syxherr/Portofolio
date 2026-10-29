@@ -1,65 +1,167 @@
+import { useRef, useState } from 'react';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
 import useScrollReveal from '../../hooks/useScrollReveal';
 import styles from './Experience.module.css';
 
-type ExperienceItem = {
-  role: string;
-  company: string;
+type TimelineItem = {
+  tag: string;
   date: string;
+  title: string;
+  org: string;
   points: string[];
+  cert?: { href: string; label: string };
 };
 
-const EXPERIENCE_DATA: ExperienceItem[] = [
+// Urutan dari yang paling baru. Mau tambah item? Cukup tambah satu blok { ... } di sini.
+const TIMELINE_DATA: TimelineItem[] = [
   {
-    role: 'Fullstack Developer Intern',
-    company: 'Makers Institute',
+    tag: 'Internship',
     date: 'Jul 2026 - Present',
+    title: 'Fullstack Developer Intern',
+    org: 'Makers Institute',
     points: [
       'Implemented UI components based on Figma designs.',
       'Integrated web features with backend REST APIs.',
       'Synchronized local application data with data stored on the server.',
-      'Handled data mapping across different sources/systems to prevent inconsistencies during cross-system processing.'
+      'Handled data mapping across different sources/systems to prevent inconsistencies during cross-system processing.',
     ],
-  
+  },
+  {
+    tag: 'Elective Courses',
+    date: 'Mar 2024 - Jul 2024',
+    title: 'Computer and Network Security',
+    org: 'IT Learning (web penetration testing)',
+    points: [
+      'Learned intercepting and testing HTTP requests using Burp Suite.',
+      'Studied web exploitation techniques such as SQL Injection, Cross-Site Scripting (XSS), CSRF, and Denial of Service (DoS) simulation.',
+      'Performed vulnerability scanning and reconnaissance using Nmap.',
+      'Created web vulnerability reports detailing findings, risk assessments, and remediation recommendations.',
+    ],
+  },
+  {
+    tag: 'Kampus Merdeka',
+    date: 'Agu 2023 - Dec 2023',
+    title: 'Android Development',
+    org: 'Bangkit Academy — led by Google, Tokopedia, Gojek, & Traveloka',
+    points: [
+      'Capstone Project: Developed a financial application for recording both income and expenses.',
+      'Learned life path and soft skills development to support a professional career.',
+      'Relevant Coursework: SOLID Programming Principles, Kotlin Programming, Intermediate Android Development, Building Android Apps with Jetpack Compose, Android Database Integration, and Associate Android Developer Preparation.',
+    ],
+    cert: { href: 'Bangkit Certificate.pdf', label: 'Certificate' },
   },
 ];
 
 export default function Experience() {
   useScrollReveal();
+
+  // Penanda: sudah sampai ujung bawah timeline atau belum
+  const timelineRef = useRef<HTMLOListElement>(null);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+  target: timelineRef,
+  offset: ['start center', 'end end'],
+});
+
+useMotionValueEvent(scrollYProgress, 'change', (v) => setAtEnd(v > 0.80));
   return (
     <section className={styles.experience} id="experience">
-      <h2 className="heading sr-top">Experience</h2>
-      {EXPERIENCE_DATA.map((exp, i) => {
-        const dateParts = exp.date.split('-').map((part) => part.trim());
-        const isPresent = dateParts[dateParts.length - 1] === 'Present';
-
-        return (
-          <div className={styles.item} key={i}>
-            <h4 className="sr-top">
-              <span className={styles.roleHighlight}>{exp.role.split(' ')[0]}</span>{' '}
-              {exp.role.split(' ').slice(1).join(' ')}
-            </h4>
-            <h3 className="sr-right">{exp.company}</h3>
-            <p className="sr-bottom">
-              {dateParts[0]}
-              {dateParts.length > 1 && (
-                <>
-                  {' - '}
-                  {isPresent ? (
-                    <span className={styles.presentHighlight}>Present</span>
-                  ) : (
-                    dateParts[1]
-                  )}
-                </>
-              )}
-            </p>
-            <ul className="sr-right">
-              {exp.points.map((point, j) => (
-                <li key={j}>{point}</li>
-              ))}
-            </ul>
+      <div className={styles.layout}>
+        <motion.aside
+  layout="position"
+  transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+  className={`${styles.left} ${atEnd ? styles.leftEnd : ''}`}
+>
+          <div className={`${styles.titleWrap} sr-top`}>
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={atEnd ? 'end' : 'start'}
+                className={styles.title}
+                initial={{ opacity: 0, y: -24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 24 }}
+                transition={{ duration: 0.4 }}
+              >
+                {atEnd ? 'Learning by doing' : 'How I got here'}
+              </motion.h1>
+            </AnimatePresence>
           </div>
-        );
-      })}
+
+          <div className={`${styles.collegeCard} sr-bottom`}>
+            <p className={styles.cardLabel}>College</p>
+            <h3>Universitas Teknologi Bandung</h3>
+            <p className={styles.degree}>
+              <span>Bachelor</span> of Computer Science
+            </p>
+            <p className={styles.date}>Sep 2021 - Nov 2025</p>
+            <p className={styles.thesis}>
+  Thesis: Pembangunan Aplikasi Finfix Untuk Pencatatan Keuangan Berbasis Android.
+</p>
+
+<div className={styles.divider} />
+
+<p className={styles.cardLabel}>Organization</p>
+<p className={styles.orgName}>Himpunan Mahasiswa Teknologi Informatika</p>
+<p className={styles.orgRole}>KOMINFO, Creative Media staff</p>
+
+<a
+  href="Surat Keputusan.pdf"
+  target="_blank"
+  rel="noreferrer"
+  className={`${styles.certBtn} cursor-target`}
+>
+  Organization Doc
+</a>
+          </div>
+        </motion.aside>
+
+        {/* KANAN: timeline */}
+        <ol className={styles.timeline} ref={timelineRef}>
+          {TIMELINE_DATA.map((item, i) => {
+            const [start, end] = item.date.split(' - ');
+            const [first, ...rest] = item.title.split(' ');
+
+            return (
+              <li className={styles.item} key={i}>
+                <span className={styles.dot} />
+                <div className={`${styles.card} sr-right`}>
+                  <p className={styles.meta}>
+                    <span>{item.tag}</span> | {start} -{' '}
+                    {end === 'Present' ? (
+                      <span className={styles.presentHighlight}>Present</span>
+                    ) : (
+                      end
+                    )}
+                  </p>
+
+                  <h3 className={styles.role}>
+                    <span>{first}</span> {rest.join(' ')}
+                  </h3>
+                  <p className={styles.company}>{item.org}</p>
+
+                  <ul className={styles.points}>
+                    {item.points.map((point, j) => (
+                      <li key={j}>{point}</li>
+                    ))}
+                  </ul>
+
+                  {item.cert && (
+                    <a
+                      href={item.cert.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${styles.certBtn} cursor-target`}
+                    >
+                      {item.cert.label}
+                    </a>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </section>
   );
 }

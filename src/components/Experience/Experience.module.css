@@ -1,51 +1,221 @@
 .experience {
-  flex-direction: column;
-  justify-content: center;
   background: var(--bg-color);
+  padding-bottom: 9rem;
+  padding-top: 10rem;
 }
 
-.experience h2 {
-  padding-bottom: 4rem;
+
+.titleWrap {
+  min-height: 52px;   /* tinggi dikunci supaya kartu College tidak loncat saat judul berganti */
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0;   /* jaraknya sekarang diatur .titleWrap */
+}
+/* Dua kolom: kiri 1 bagian, kanan 2 bagian */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start; /* penting: tanpa ini kolom kiri ikut setinggi kolom kanan, jadi sticky tidak terasa */
+}
+
+/* Kolom kiri menempel 110px dari atas layar saat kolom kanan di-scroll */
+.left {
+  position: sticky;
+  top: 110px;
+}
+/* Label kecil di atas judul */
+.kicker {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.title {
+  font-size: 48px; /* dulu 45px. Kalimat lebih panjang, jadi dikecilkan supaya muat di kolom kiri */
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ============ Kartu College (kiri) ============ */
+.collegeCard {
+  background: var(--second-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.cardLabel {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin-bottom: 12px;
+}
+
+.collegeCard h3 {
+  font-size: 20px;
+  color: #edeef0;
+  line-height: 1.3;
+}
+
+.degree {
+  font-size: 16px;
+  color: #d0d0d0;
+  margin-top: 6px;
+}
+
+.date {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.14);
+  color: var(--main-color);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.thesis {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #9a9a9a;
+}
+
+/* Garis pemisah antara thesis dan organisasi */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 20px 0;
+}
+
+.orgName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #edeef0;
+  line-height: 1.4;
+}
+
+.orgRole {
+  font-size: 14px;
+  color: var(--main-color);
+  margin-top: 4px;
+}
+
+/* ============ Timeline (kanan) ============ */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 44px;
+}
+
+/* Garis: mulai dari tengah titik pertama, turun sampai ujung bawah */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 42px;
+  bottom: 0;
+  width: 5px;
+  background-color: var(--main-color);
 }
 
 .item {
-  margin-bottom: 3rem;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .item:last-child {
   margin-bottom: 0;
 }
 
-.experience h4 {
-  font-size: 30px;
+.dot {
+  position: absolute;
+  left: -48px;
+  top: 170px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+}
+
+.card {
+  background: var(--second-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 30px 36px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #9a9a9a;
+}
+
+.role {
+  font-size: 28px;
   font-weight: 700;
+  line-height: 1.2;
+  margin-top: 10px;
 }
 
-.experience h3 {
-  font-size: 20px;
-  color: #edeef0;
-  line-height: 22px;
-  font-weight: bold;
+.company {
+  font-size: 18px;
+  color: #d0d0d0;
+  margin-top: 4px;
 }
 
-.experience p {
+.points {
+  margin-top: 18px;
+  padding-left: 20px;
   font-size: 16px;
   color: #d0d0d0;
-  margin-top: 5px;
-  margin-bottom: 10px;
 }
 
-.experience ul {
-  font-size: 17px;
-  padding-left: 20px;
-}
-
-.experience ul li {
-  margin-bottom: 6px;
-  margin-top: 5px;
+.points li {
+  margin-bottom: 8px;
+  line-height: 1.6;
 }
 
 .presentHighlight {
-  color: #a78bfa;
+  color: var(--main-color);
   font-weight: 700;
+}
+
+/* ============ Tombol sertifikat (dipakai kiri dan kanan) ============ */
+.certBtn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 8px 22px;
+  background: var(--main-color);
+  border-radius: 5px;
+  color: var(--second-bg-color);
+  letter-spacing: 0.05rem;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.5s ease;
+  box-shadow: 0 0 1rem var(--bg-color);
+}
+
+.certBtn:hover {
+  color: var(--text-color);
+  box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* ============ Tablet dan HP: satu kolom, tidak sticky ============ */
+@media (max-width: 991px) {
+  .experience {
+    padding-bottom: 2rem;
+  }
+
+  .left {
+    position: static;
+  }
 }
