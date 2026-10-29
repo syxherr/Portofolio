@@ -1,8 +1,7 @@
 /* ===== SECTION ===== */
 .home {
   width: 100%;
-    background: var(--second-bg-color);
-
+  background: var(--second-bg-color);
   padding-top: 2rem;
   padding-bottom: 7rem;
 }
@@ -16,7 +15,6 @@
   border-radius: 99px;
   overflow: hidden;
 }
-
 
 .progressFill {
   height: 100%;
@@ -77,7 +75,6 @@
   padding-top: 1.5rem;
 }
 
-
 .navLeft,
 .navRight {
   background: none;
@@ -93,7 +90,6 @@
 .navLeft:hover,
 .navRight:hover {
   color: #a78bfa;
-  
 }
 
 .dots {
@@ -109,6 +105,7 @@
   overflow: hidden;
   width: 100%;
 }
+
 :global(.swiper-wrapper) {
   align-items: stretch;
 }
@@ -117,7 +114,6 @@
 :global(.swiper-slide) {
   height: auto;
   display: flex;
-  
 }
 
 .card {
@@ -129,6 +125,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .imgArea {
   position: relative;
   width: 100%;
@@ -137,7 +134,6 @@
   background: #0a0c10;
   border-radius: 2rem 2rem 0 0;
   overflow: hidden;
-  
 }
 
 .img {
@@ -221,12 +217,14 @@
   color: rgba(255, 255, 255, 0.55);
   margin: 0;
 }
+
 .cardBody {
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
+
 /* ===== META ROW ===== */
 .metaRow {
   display: flex;
@@ -314,7 +312,6 @@
   padding: 6px 15px;
   border-radius: 8px;
   cursor: pointer;
-  
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.15s;
@@ -336,7 +333,6 @@
   border: 0.5px solid rgba(255, 255, 255, 0.2);
 }
 
-
 .dotBtn {
   width: 22px;
   height: 5px;
@@ -352,16 +348,17 @@
   background: #fff;
 }
 
-/* SESUDAH */
+/* ===== MY ACTIVITY (GitHub + GitLab) ===== */
+/* ===== MY ACTIVITY (GitHub + GitLab) ===== */
 .activityWrapper {
   width: 100%;
   max-width: 850px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* kartu menumpuk: GitHub di atas, GitLab di bawah */
+  gap: 2rem;
 }
 
-/* SESUDAH */
 .activityCard {
   background: #12151c;
   border: 0.5px solid rgba(255, 255, 255, 0.08);
@@ -369,8 +366,14 @@
   padding: 2.5rem 1.5rem;
   width: 100%;
   display: flex;
+  flex-direction: column; /* judul di atas, kalender di bawah */
   align-items: center;
-  justify-content: center;
+}
+
+.activityTitle {
+  font-size: 18px;
+  margin-bottom: 1.2rem;
+  text-align: center;
 }
 
 .activityCard :global(.react-activity-calendar) {
@@ -382,7 +385,14 @@
   height: auto;
 }
 
+/* Di layar kecil, kartu kembali menumpuk jadi satu kolom */
+@media (max-width: 900px) {
+  .activityWrapper {
+    grid-template-columns: 1fr;
+  }
+}
 
+/* ===== MOBILE (versi pertama) ===== */
 @media (max-width: 600px) {
   .navLeft,
   .navRight {
@@ -394,7 +404,6 @@
     max-width: 100%;
     padding: 0rem 5rem;
   }
-
 
   /* 4. Card tidak stretch berlebihan */
   .card {
@@ -429,6 +438,7 @@
   }
 }
 
+/* ===== MOBILE (versi kedua, menimpa yang pertama) ===== */
 @media (max-width: 600px) {
   .navLeft,
   .navRight {

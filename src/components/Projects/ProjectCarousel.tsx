@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { GitHubCalendar } from "react-github-calendar";
+import GitLabCalendar from "./GitLabCalendar";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
 import {
@@ -294,19 +295,25 @@ export default function ProjectCarousel() {
 
         {filter === "My Activity" ? (
           <div className={`${styles.activityWrapper} sr-bottom`}>
-            <div className={styles.activityCard}>
-              <GitHubCalendar
-                username="syxherr"
-                colorScheme="dark"
-                theme={{
-                  dark: ["#1d1d1f", "#c9b8f5", "#a78bfa", "#8b5cf6", "#6d28d9"],
-                }}
-                blockSize={12}
-                blockMargin={4}
-                fontSize={13}
-              />
-            </div>
-          </div>
+  <div className={styles.activityCard}>
+    <h3 className={styles.activityTitle}>GitHub</h3>
+    <GitHubCalendar
+      username="syxherr"
+      colorScheme="dark"
+      theme={{
+        dark: ["#1d1d1f", "#c9b8f5", "#a78bfa", "#8b5cf6", "#6d28d9"],
+      }}
+      blockSize={12}
+      blockMargin={4}
+      fontSize={13}
+    />
+  </div>
+
+  <div className={styles.activityCard}>
+    <h3 className={styles.activityTitle}>GitLab</h3>
+    <GitLabCalendar />
+  </div>
+</div>
         ) : (
           <>
             <div className={`${styles.cardWrapper} sr-bottom`}>
