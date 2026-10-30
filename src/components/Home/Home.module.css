@@ -1,3 +1,4 @@
+
 .home {
   display: flex;
   justify-content: center;
@@ -10,21 +11,26 @@
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  text-align: left;
   justify-content: center;
+  text-align: left;
   margin-top: 1rem;
-}
-
-
-.homeContent h4 {
-  font-size: 3.2rem;
-  font-weight: 700;
 }
 
 .homeContent h1 {
   font-size: 5rem;
   font-weight: 700;
   line-height: 1.3;
+}
+
+.homeContent h3,
+.homeContent h4 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.homeContent h3 {
+  padding: 1rem;
+  min-height: 4rem;
 }
 
 .homeContent p {
@@ -34,57 +40,32 @@
   text-align: justify;
 }
 
-.profileImg {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -15rem;
-}
-
-.pc-card {
-  width: 280px;  /* default biasanya 320px atau lebih */
-  height: 380px; /* sesuaikan */
-}
-
-.pc-card-wrapper {
-  width: 340px;
-  height: 440px;
-  max-width: 100%;
-}
-
-.sosmed {
-  margin-top: 0.5rem;
-}
-
-.sosmed p {
-  font-size: 2rem;
-}
-
-.sosmed a {
+.openBadge {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  width: 5rem;
-  height: 5rem;
-  background: var(--second-bg-color);
-  border-radius: 20%;
-  font-size: 3rem;
-  color: #787878;
-  margin: 0.5rem 0.7rem 1.5rem 0.7rem;
-  transition: 0.3s ease-in-out;
+  gap: 0.5rem;
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #a78bfa;
+  font-size: 1.4rem;
+  padding: 0.3rem 1.2rem;
+  border-radius: 99px;
+  margin-bottom: 0.5rem;
 }
 
-.sosmed a:hover {
+.textType {
+  min-width: 28rem;
+}
+
+.textType :global(.text-type__content),
+.textType :global(.text-type__cursor) {
   color: var(--main-color);
-  transform: scale(1.02);
-  border-color: var(--main-color);
-  box-shadow: 0 0 0.7rem var(--main-color);
 }
 
 .tombol {
   margin-top: 0.5rem;
 }
+
 .curtainBtn {
   position: relative;
   overflow: hidden;
@@ -117,203 +98,15 @@
   color: black;
 }
 
-@media (max-width: 991px) {
-  .sosmed a {
-    width: 4rem;
-    height: 4rem;
-    margin: 0.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .home {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    margin-bottom: 7.5rem;
-  }
-
-  .homeContent h3,
-  .homeContent h4 {
-    font-size: 2.6rem;
-  }
-
-  .homeContent h1 {
-    font-size: 5rem;
-  }
-
-  .homeContent p {
-    margin-right: 0;
-  }
-
-  .profileImg {
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .profileImg img {
-    width: 45vw;
-    border-radius: 50%;
-    margin-bottom: 8rem;
-  }
-}
-
-.profileImg {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profileImg img {
-  position: relative;
-  width: 20vw;
-  border-radius: 2rem;
-  }
-
-
-/* Badge floating di foto */
-.profileBadge {
-  position: absolute;
-  bottom: -1rem;
-  right: -1.5rem;
-  background: rgba(13, 13, 20, 0.85);
-  border: 1px solid rgba(167, 139, 250, 0.25);
-  border-radius: 0.75rem;
-  padding: 0.6rem 1rem;
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.profileBadge span {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #a78bfa;
-}
-
-.profileBadge p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0;
-}
-
-/* Badge atas kiri */
-.profileBadgeTop {
-  position: absolute;
-  top: -1rem;
-  left: -1.5rem;
-  background: rgba(13, 13, 20, 0.85);
-  border: 1px solid rgba(167, 139, 250, 0.25);
-  border-radius: 0.75rem;
-  padding: 0.6rem 1rem;
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.profileBadgeTop i {
-  font-size: 1.6rem;
-  color: #a78bfa;
-}
-
-.profileBadgeTop span {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Dot animasi */
-.pulseDot {
-  width: 8px;
-  height: 8px;
-  background: #a78bfa;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-/* Badge "open to work" di atas nama */
-.openBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.3);
-  color: #a78bfa;
-  font-size: 1.4rem;
-  padding: 0.3rem 1.2rem;
-  border-radius: 99px;
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .profileImg {
-    justify-content: flex-start;
-    margin-top: 0.9rem;
-  }
-
-  .profileImg img {
-    width: 45vw;
-    align-items: flex-start;
-    border-radius: 10%;
-    margin-bottom: 6rem;
-  }
-  .profileBadge, .profileBadgeTop {
-    display: none;
-  }
-  .textType {
-    min-width: 25rem;
-  }
-}
-
-.homeContent h3 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  padding: 1rem;
-    min-height: 4rem; /* tambah ini biar tinggi tetap */
-
-}
-
-.textType {
-  min-width: 28rem; /* lebar minimum sesuai teks terpanjang */
-}
-
-.textType :global(.text-type__content) {
-  color: var(--main-color);
-}
-
-.textType :global(.text-type__cursor) {
-  color: var(--main-color);
-}
-
-@media (max-width: 480px) {
-
-
-  .homeContent p {
-    font-size: 1.5rem;
-    margin-right: 1.9rem;
-  }
-  .textType {
-    min-width: 25rem;
-  }
-
-}
-
-
-/* ============ Kartu About ============ */
 .aboutWrap {
   display: flex;
   flex-direction: column;
   flex: 1;
   max-width: 780px;
+}
+
+.aboutWrap :global(.magic-bento__label) {
+  color: var(--mb-muted);
 }
 
 .aboutCard {
@@ -331,7 +124,6 @@
   margin-top: 20px;
 }
 
-/* Baris teks mengetik di bawah judul */
 .kicker {
   font-size: 20px;
   font-weight: 600;
@@ -340,7 +132,7 @@
 
 .aboutCols {
   display: grid;
-  grid-template-columns: 1fr; /* dulu: 1fr 1fr (dua kolom) */
+  grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 24px;
 }
@@ -376,7 +168,193 @@
   margin-top: 6px;
 }
 
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+.profileImg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15rem;
+}
+
+.profileImg img {
+  position: relative;
+  width: 20vw;
+  border-radius: 2rem;
+}
+
+.profileBadge,
+.profileBadgeTop {
+  position: absolute;
+  background: rgba(13, 13, 20, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.profileBadge {
+  bottom: -1rem;
+  right: -1.5rem;
+}
+
+.profileBadge span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+.profileBadge p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.profileBadgeTop {
+  top: -1rem;
+  left: -1.5rem;
+}
+
+.profileBadgeTop i {
+  font-size: 1.6rem;
+  color: #a78bfa;
+}
+
+.profileBadgeTop span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: #a78bfa;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.pc-card {
+  width: 280px;
+  height: 380px;
+}
+
+.pc-card-wrapper {
+  width: 340px;
+  height: 440px;
+  max-width: 100%;
+}
+
+.sosmed {
+  margin-top: 0.5rem;
+}
+
+.sosmed p {
+  font-size: 2rem;
+}
+
+.sosmed a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  background: var(--second-bg-color);
+  border-radius: 20%;
+  font-size: 3rem;
+  color: #787878;
+  margin: 0.5rem 0.7rem 1.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.sosmed a:hover {
+  color: var(--main-color);
+  transform: scale(1.02);
+  border-color: var(--main-color);
+  box-shadow: 0 0 0.7rem var(--main-color);
+}
+
+.photoCol .profileImg {
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.photoCol .sosmed {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.photoCol .sosmed a:first-of-type {
+  margin-left: 0;
+}
+
+.photoCol :global(.button) {
+  margin-left: 0;
+}
+
+@media (min-width: 769px) {
+  .home {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-content: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .aboutWrap {
+    max-width: none;
+  }
+
+  .aboutWrap > :global(.magic-bento) {
+    flex: 1;
+  }
+
+  .photoCol {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .photoCol .sosmed {
+    margin-top: 24px;
+  }
+
+  .photoCol .sosmed a {
+    margin-bottom: 0.6rem;
+  }
+
+  .photoCol :global(.button) {
+    margin: 24px 0 0;
+  }
+}
+
 @media (max-width: 991px) {
+  .sosmed a {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+  }
+
   .aboutCard {
     padding: 28px;
   }
@@ -396,46 +374,66 @@
 }
 
 @media (max-width: 768px) {
+  .home {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin-bottom: 7.5rem;
+  }
+
+  .homeContent h3,
+  .homeContent h4 {
+    font-size: 2.6rem;
+  }
+
+  .homeContent h1 {
+    font-size: 5rem;
+  }
+
+  .homeContent p {
+    margin-right: 0;
+  }
+
   .aboutWrap {
     width: 100%;
     max-width: 100%;
   }
-}
 
-/* ============ Kolom foto: foto + sosmed + CV, rata kiri ============ */
-.photoCol {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;  /* dulu center: sosmed dan CV mulai dari kiri */
-  align-self: flex-start;   /* kolom menempel di atas, sejajar bagian atas kartu */
-  margin-top: 0;            /* dulu -15rem: tidak lagi diangkat */
-}
-
-/* margin-top lama dari .profileImg dinolkan, foto rata kiri */
-.photoCol .profileImg {
-  margin-top: 0;
-  justify-content: flex-start;
-}
-
-.photoCol .sosmed {
-  text-align: left;
-  margin-top: 2rem;
-}
-
-/* Ikon pertama tidak punya jarak kiri, supaya lurus dengan tepi foto */
-.photoCol .sosmed a:first-of-type {
-  margin-left: 0;
-}
-
-/* Tombol Download CV juga mulai dari tepi kiri */
-.photoCol :global(.button) {
-  margin-left: 0;
-}
-
-@media (max-width: 768px) {
   .photoCol {
     width: 100%;
     align-self: auto;
     margin-top: 0.9rem;
+  }
+
+  .profileImg {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .profileImg img {
+    width: 45vw;
+    align-items: flex-start;
+    border-radius: 10%;
+    margin-bottom: 6rem;
+  }
+
+  .profileBadge,
+  .profileBadgeTop {
+    display: none;
+  }
+
+  .textType {
+    min-width: 25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContent p {
+    font-size: 1.5rem;
+    margin-right: 1.9rem;
+  }
+
+  .textType {
+    min-width: 25rem;
   }
 }

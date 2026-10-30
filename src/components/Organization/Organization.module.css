@@ -1,3 +1,4 @@
+
 .organization {
   flex-direction: column;
   justify-content: center;
@@ -15,30 +16,31 @@
 
 .organization h3 {
   font-size: 20px;
-  color: #edeef0;
-  line-height: 22px;
   font-weight: bold;
+  line-height: 22px;
+  color: #edeef0;
 }
 
 .organization p {
-  font-size: 16px;
-  color: #d0d0d0;
   margin-top: 5px;
   margin-bottom: 10px;
+  font-size: 16px;
+  color: #d0d0d0;
 }
 
 .organization ul {
-  font-size: 17px;
   padding-left: 20px;
+  font-size: 17px;
 }
 
 .organization ul li {
-  margin-bottom: 6px;
   margin-top: 5px;
+  margin-bottom: 6px;
 }
 
 .docBtn {
   display: inline-block;
+  width: 230px;
   margin-top: 10px;
   padding: 1rem 2.8rem;
   background: var(--main-color);
@@ -47,10 +49,9 @@
   letter-spacing: 0.1rem;
   font-size: 1.6rem;
   font-weight: 600;
+  text-align: center;
   transition: 0.5s ease;
   box-shadow: 0 0 1rem var(--bg-color);
-  width: 230px;
-  text-align: center;
 }
 
 .docBtn:hover {

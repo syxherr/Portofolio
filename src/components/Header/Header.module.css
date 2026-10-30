@@ -1,17 +1,17 @@
 
 .header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 1.4rem 6%;
   background: rgba(13, 13, 20, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 0.5px solid rgba(167, 139, 250, 0.12);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
@@ -27,17 +27,17 @@
 .logo {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
   letter-spacing: -0.5px;
+  color: #fff;
 }
 
 .navbar a {
+  position: relative;
+  margin-left: 3rem;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
-  margin-left: 3rem;
   transition: color 0.2s ease;
-  position: relative;
 }
 
 .navbar a::after {
@@ -65,39 +65,39 @@
   color: #a78bfa;
 }
 
-/* ===== HAMBURGER ===== */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
+  padding: 4px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
   z-index: 1001;
 }
 
 .bar {
+  display: block;
   width: 25px;
   height: 2px;
   background: #fff;
   border-radius: 99px;
   transition: all 0.3s ease;
-  display: block;
 }
 
 .bar1Open {
   transform: translateY(7px) rotate(45deg);
 }
+
 .bar2Open {
   opacity: 0;
   transform: scaleX(0);
 }
+
 .bar3Open {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ===== OVERLAY ===== */
 .overlay {
   position: fixed;
   inset: 0;
@@ -105,7 +105,6 @@
   z-index: 99;
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -115,18 +114,18 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 55%; /* dari 65% jadi lebih kecil */
-    height: 100vh;
-    background: #0d0d14;
-    border-left: 0.5px solid rgba(167, 139, 250, 0.15);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start; /* dari center jadi flex-start (pojok atas) */
-    padding: 6rem 2rem 3rem; /* padding atas besar biar ada jarak dari X button */
-    gap: 0;
-    transition: right 0.3s ease;
     z-index: 100;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    width: 55%;
+    height: 100vh;
+    padding: 6rem 2rem 3rem;
+    background: #0d0d14;
+    border-left: 0.5px solid rgba(167, 139, 250, 0.15);
+    transition: right 0.3s ease;
   }
 
   .navbar.open {
@@ -134,11 +133,11 @@
   }
 
   .navbar a {
-    font-size: 1.8rem;
     margin-left: 0;
-    margin-bottom: 2rem; /* jarak antar link lebih kecil */
-    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
     padding: 0.5rem 0;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .navbar a.active {

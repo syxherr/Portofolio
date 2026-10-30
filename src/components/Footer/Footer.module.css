@@ -1,8 +1,8 @@
-/* SESUDAH */
+
 .footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 2rem 8%;
   background: var(--second-bg-color);
@@ -15,12 +15,12 @@
 
 .upBtn {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 0.8rem;
-  color: var(--second-bg-color);
   background: var(--main-color);
   border-radius: 0.8rem;
+  color: var(--second-bg-color);
   transition: 0.3s ease-in-out;
 }
 
@@ -45,8 +45,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.2rem;
-    text-align: center;
     padding: 2rem 5%;
+    text-align: center;
   }
 
   .footer p {

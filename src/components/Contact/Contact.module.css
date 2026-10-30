@@ -1,3 +1,4 @@
+
 .contact {
   display: flex;
   justify-content: center;
@@ -6,20 +7,20 @@
 .card {
   width: 100%;
   max-width: 700px;
+  padding: 5rem 3rem 0.5rem;
   background: #141414;
   border: 1px solid #262626;
   border-radius: 2rem;
-  padding: 5rem 3rem 0.5rem;
   align-items: center;
   justify-content: center;
 }
 
 .title {
-  text-align: center;
+  margin-bottom: 2rem;
   font-size: 2.8rem;
   font-weight: 700;
+  text-align: center;
   color: #f5f5f5;
-  margin-bottom: 2rem;
 }
 
 .highlight {
@@ -37,14 +38,6 @@
   gap: 4rem;
   padding: 2rem 0;
   border-bottom: 1px solid #262626;
-}
-
-@media (max-width: 560px) {
-  .row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.6rem;
-  }
 }
 
 .inlineField {
@@ -76,22 +69,22 @@
 }
 
 .toBadge {
-  background: rgba(167, 139, 250, 0.15);
-  color: #a78bfa;
   padding: 0.8rem 1.6rem;
+  background: rgba(167, 139, 250, 0.15);
   border-radius: 99px;
   font-size: 1.6rem;
+  color: #a78bfa;
 }
 
 .plainInput,
 .plainTextarea {
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;
-  color: #f5f5f5;
-  font-size: 1.6rem;
-  width: 100%;
   font-family: inherit;
+  font-size: 1.6rem;
+  color: #f5f5f5;
 }
 
 .plainInput::placeholder,
@@ -100,20 +93,20 @@
 }
 
 .plainTextarea {
-  resize: none;
   min-height: 9rem;
+  resize: none;
 }
 
 .button {
   margin-top: 3rem;
+  padding: 1rem 2.8rem;
   background: #a78bfa;
-  color: #141414;
-  font-weight: 600;
   border: none;
   border-radius: 5px;
-  padding: 1rem 2.8rem;
-  cursor: pointer;
+  color: #141414;
   font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .button:disabled {
@@ -121,16 +114,25 @@
   cursor: not-allowed;
 }
 
-.success {
-  color: #4ade80;
+.success,
+.errorMsg {
+  margin-top: 1.2rem;
   font-size: 1.4rem;
   text-align: center;
-  margin-top: 1.2rem;
+}
+
+.success {
+  color: #4ade80;
 }
 
 .errorMsg {
   color: #f87171;
-  font-size: 1.4rem;
-  text-align: center;
-  margin-top: 1.2rem;
+}
+
+@media (max-width: 560px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
 }
