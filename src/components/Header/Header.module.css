@@ -148,3 +148,22 @@
     display: none;
   }
 }
+
+
+.nav {
+  width: 100%;
+  max-width: 1075px;        /* lebar kapsul, ubah sesuai selera */
+  --pn-item-gap: 10px;      /* jarak antar item, bawaan cuma 2px */
+}
+
+/* Menu ditaruh di tengah kapsul, bukan mepet logo */
+.nav :global(.pill-nav__bar) {
+  margin: 0 auto;
+}
+
+/* Elemen kosong seukuran logo di sisi kanan, supaya menu benar-benar di tengah */
+.nav:not([data-collapsed])::after {
+  content: "";
+  flex: none;
+  width: var(--pn-inner);
+}

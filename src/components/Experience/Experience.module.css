@@ -2,19 +2,22 @@
 .experience {
   background: var(--bg-color);
   padding-top: 3rem;
-  padding-bottom: 9rem;
+  padding-bottom: 6rem;
 }
 
 .titleWrap {
   min-height: 44px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .title {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.15;
-  margin-bottom: 0;
+}
+
+.titleEnd {
+  font-size: 40px;
 }
 
 .layout {
@@ -29,6 +32,7 @@
 .left {
   position: sticky;
   top: 110px;
+  /* margin-bottom: 1rem; */
 }
 
 .kicker {

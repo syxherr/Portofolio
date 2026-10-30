@@ -143,6 +143,34 @@
   color: #a2a2a9;
 }
 
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  height: 100%;
+}
+
+.infoLabel {
+  font-size: 14px;
+  color: var(--mb-muted, #a1a1aa);
+}
+
+.infoTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.infoRole {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a78bfa;
+}
+
 .facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -436,4 +464,21 @@
   .textType {
     min-width: 25rem;
   }
+}
+
+.aboutWrap :global(.magic-bento__text) {
+  flex: 1;
+  justify-content: center; 
+  margin-top: 0;
+}
+
+
+.aboutWrap :global(.magic-bento__cell):nth-child(3) :global(.magic-bento__content) {
+  justify-content: center; /* kelompok label + judul di tengah kartu */
+  gap: 4px;                /* jarak label ke judul, dulu 12px */
+}
+
+.aboutWrap :global(.magic-bento__cell):nth-child(3) :global(.magic-bento__text) {
+  flex: none;      /* batalkan flex: 1 dari aturan centering sebelumnya */
+  margin-top: 0;
 }

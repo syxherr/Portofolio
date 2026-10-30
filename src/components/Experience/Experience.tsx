@@ -64,27 +64,23 @@ export default function Experience() {
   offset: ['start center', 'end end'],
 });
 
-useMotionValueEvent(scrollYProgress, 'change', (v) => setAtEnd(v > 0.80));
+useMotionValueEvent(scrollYProgress, 'change', (v) => setAtEnd(v > 0.60));
   return (
     <section className={styles.experience} id="experience">
       <div className={styles.layout}>
-        <motion.aside
-  layout="position"
-  transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-  className={`${styles.left} ${atEnd ? styles.leftEnd : ''}`}
->
+        <aside className={styles.left}>
           <div className={`${styles.titleWrap} sr-top`}>
             <AnimatePresence mode="wait">
-              <motion.h1
-                key={atEnd ? 'end' : 'start'}
-                className={styles.title}
-                initial={{ opacity: 0, y: -24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 24 }}
-                transition={{ duration: 0.4 }}
-              >
+              <motion.h2
+  key={atEnd ? 'end' : 'start'}
+  className={`${styles.title} ${atEnd ? styles.titleEnd : ''}`}
+  initial={{ opacity: 0, y: -24 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: 24 }}
+  transition={{ duration: 0.4 }}
+>
                 {atEnd ? 'Learning by doing' : 'How I got here'}
-              </motion.h1>
+              </motion.h2>
             </AnimatePresence>
           </div>
 
@@ -114,7 +110,7 @@ useMotionValueEvent(scrollYProgress, 'change', (v) => setAtEnd(v > 0.80));
   Organization Doc
 </a>
           </div>
-        </motion.aside>
+        </aside>
 
         {/* KANAN: timeline */}
         <ol className={styles.timeline} ref={timelineRef}>

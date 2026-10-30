@@ -9,7 +9,7 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 
 const BENTO_ITEMS = [
   {
-    colSpan: 3,
+    colSpan: 2,
     content: (
       <div>
         <div className={styles.openBadge}>
@@ -38,9 +38,9 @@ const BENTO_ITEMS = [
 
         <div className={styles.aboutCols}>
           <p>
-            Welcome to my Portofolio! Fresh graduate in{" "}
-            <span>Computer Science</span> from Universitas Teknologi Bandung
-            with a strong passion for <span>Technology</span> and{" "}
+            Welcome to my Portfolio! Fresh graduate in{" "}
+            <span>Informatics Engineering</span> from Universitas Teknologi
+            Bandung with a strong passion for <span>Technology</span> and{" "}
             <span>Design</span>.
           </p>
           <p>
@@ -51,9 +51,28 @@ const BENTO_ITEMS = [
       </div>
     ),
   },
-  { label: "Based in", title: "Bandung, ID" },
-  { label: "Working at", title: "Makers Institute" },
-  { label: "Looking for", title: "Front-End/UI/UX role" },
+  {
+    content: (
+      <div className={styles.infoCard}>
+        <span className={styles.infoLabel}>Working at</span>
+        <div>
+          <p className={styles.infoTitle}>Makers Institute</p>
+          <p className={styles.infoRole}>Fullstack Developer Intern</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    content: (
+      <div className={styles.infoCard}>
+        <span className={styles.infoLabel}>Interested in</span>
+        <div>
+          <p className={styles.infoTitle}>Front-End or UI/UX</p>
+          <p className={styles.infoRole}>Vite · CSS Modules · Motion</p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function Home() {
@@ -64,23 +83,23 @@ export default function Home() {
       {/* KIRI: MagicBento */}
       <div className={styles.aboutWrap}>
         <MagicBento
-  items={BENTO_ITEMS}
-  columns={3}
-  rowHeight={130}
-  gap={12}
-  radius={32}   // dulu 24: kembali ke radius kartu About-mu yang lama
-  theme="dark"
-  glowColor="#a78bfa"
-  enableBorderGlow
-  enableSpotlight
-  spotlightRadius={300}
-  clickEffect={false}
-  textAutoHide={false}
-  style={{
-    gridAutoRows: "auto",
-    gridTemplateRows: "auto minmax(150px, 1fr)", // baris 1 mengikuti isi, baris 2 (3 kartu kecil) mengambil sisa tinggi
-  }}
-/>
+          items={BENTO_ITEMS}
+          columns={2}
+          rowHeight={130}
+          gap={12}
+          radius={20}
+          theme="dark"
+          glowColor="#a78bfa"
+          enableBorderGlow
+          enableSpotlight
+          spotlightRadius={300}
+          clickEffect={false}
+          textAutoHide={false}
+          style={{
+            gridAutoRows: "auto",
+            gridTemplateRows: "auto minmax(150px, 1fr)", // baris 1 mengikuti isi, baris 2 (2 kartu kecil) mengambil sisa tinggi
+          }}
+        />
       </div>
 
       {/* KANAN: foto, lalu Find Me On dan Download CV di bawahnya */}
