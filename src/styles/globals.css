@@ -20,6 +20,13 @@
   --second-bg-color: #1d1d1f;
   --text-color: #FFF;
   --main-color: #a78bfa ;
+  --gutter: 12px; /* jarak kiri-kanan section, sama kaya px-3 punya Hafidz */
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 24px; /* sm:px-6 */
+  }
 }
 
 html {
@@ -33,9 +40,13 @@ body {
   overflow-x: clip; 
 }
 
+/* Pembungkus section ala Hafidz: isi maks 1240px di tengah, background tetap full-width */
 section {
   min-height: 100vh;
-  padding: 10rem 12% 10rem;
+  padding-block: 10rem;
+  padding-inline: max(var(--gutter), calc((100% - 1240px) / 2 + var(--gutter)));
+  /* Saat klik nav, berhenti sedikit di atas section supaya judul nggak ketutup navbar */
+  scroll-margin-top: 50px;
 }
 
 span {
@@ -83,7 +94,7 @@ span {
 
 @media (max-width: 991px) {
   section {
-    padding: 7.5rem 5% 2rem;
+    padding-block: 7.5rem 2rem;
   }
 }
 

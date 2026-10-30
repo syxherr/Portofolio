@@ -12,11 +12,6 @@ const BENTO_ITEMS = [
     colSpan: 2,
     content: (
       <div>
-        <div className={styles.openBadge}>
-          <span className={styles.pulseDot} />
-          Open to opportunities
-        </div>
-
         <p className={styles.kicker}>
           I&apos;m <span>Shas</span>kia, a{" "}
           <TextType
@@ -104,44 +99,50 @@ export default function Home() {
 
       {/* KANAN: foto, lalu Find Me On dan Download CV di bawahnya */}
       <div className={`${styles.photoCol} sr-top`}>
-        <div className={styles.profileImg}>
-          <TiltedCard
-            imageSrc="/images/profile2.png"
-            altText=" "
-            captionText="scroll to check my work"
-            containerHeight="300px"
-            containerWidth="300px"
-            imageHeight="300px"
-            imageWidth="300px"
-            rotateAmplitude={15}
-            scaleOnHover={1.05}
-            showMobileWarning={false}
-            showTooltip
-            displayOverlayContent={true}
-            overlayContent={
-              <p
-                style={{
-                  background: "#302d2d86",
-                  color: "#eeecec",
-                  fontWeight: "bold",
-                  fontSize: "1.3rem",
-                  fontFamily: "Inter, sans-serif",
-                  padding: "12px 20px",
-                  borderRadius: "10px",
-                  position: "absolute",
-                  top: "23px",
-                  left: "35px",
-                  width: "auto",
-                  margin: 0,
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                Bandung, ID
-              </p>
-            }
-          />
+        <div className={styles.photoGroup}>
+          <div className={styles.profileImg}>
+            <TiltedCard
+              imageSrc="/images/profile2.png"
+              altText=" "
+              captionText="scroll to check my work"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={15}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip
+              displayOverlayContent={true}
+              overlayContent={
+                <p
+                  style={{
+                    background: "#302d2d86",
+                    color: "#eeecec",
+                    fontWeight: "bold",
+                    fontSize: "1.3rem",
+                    fontFamily: "Inter, sans-serif",
+                    padding: "12px 20px",
+                    borderRadius: "10px",
+                    position: "absolute",
+                    top: "23px",
+                    left: "35px",
+                    width: "auto",
+                    margin: 0,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  Bandung, ID
+                </p>
+              }
+            />
+          </div>
+          <div className={styles.openBadge}>
+            <span className={styles.pulseDot} />
+            Open to opportunities
+          </div>
         </div>
 
         <div className={`${styles.sosmed} sr-bottom`}>

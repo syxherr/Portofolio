@@ -1,169 +1,145 @@
-
 .header {
   position: fixed;
-  top: 0;
+  inset: 0 0 auto 0;
   z-index: 100;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 12px 12px 0;
+  pointer-events: none;
+}
+
+.wrap {
   width: 100%;
-  padding: 1.4rem 6%;
-  background: rgba(13, 13, 20, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid rgba(167, 139, 250, 0.12);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.header.sticky {
-  background: rgba(13, 13, 20, 0.92);
-  border-bottom-color: rgba(167, 139, 250, 0.2);
-}
-
-.header.hidden {
-  transform: translateY(-100%);
-}
-
-.logo {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: #fff;
-}
-
-.navbar a {
-  position: relative;
-  margin-left: 3rem;
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.navbar a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #a78bfa;
-  border-radius: 99px;
-  transition: width 0.25s ease;
-}
-
-.navbar a:hover {
-  color: #a78bfa;
-}
-
-.navbar a:hover::after,
-.navbar a.active::after {
-  width: 100%;
-}
-
-.navbar a.active {
-  color: #a78bfa;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
+  max-width: 860px;
+  pointer-events: auto;
 }
 
 .bar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  overflow: hidden;
+}
+
+/* Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+/* Link desktop */
+.links {
+  display: none;
+}
+
+.links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.link {
+  position: relative;
   display: block;
-  width: 25px;
-  height: 2px;
-  background: #fff;
-  border-radius: 99px;
-  transition: all 0.3s ease;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s;
 }
 
-.bar1Open {
-  transform: translateY(7px) rotate(45deg);
+.link:hover {
+  color: #fff;
 }
 
-.bar2Open {
-  opacity: 0;
-  transform: scaleX(0);
+.linkActive,
+.linkActive:hover {
+  color: #0f0f0f;
 }
 
-.bar3Open {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.overlay {
-  position: fixed;
+.pill {
+  position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+  border-radius: 999px;
+  background: var(--main-color);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 6px 16px -6px rgb(167 139 250 / 0.55);
 }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+.linkText {
+  position: relative;
+  color: inherit;
+}
 
-  .navbar {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0;
-    width: 55%;
-    height: 100vh;
-    padding: 6rem 2rem 3rem;
-    background: #0d0d14;
-    border-left: 0.5px solid rgba(167, 139, 250, 0.15);
-    transition: right 0.3s ease;
-  }
+/* Tombol hamburger */
+.burger {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--main-color);
+  color: #0f0f0f;
+  cursor: pointer;
+}
 
-  .navbar.open {
-    right: 0;
-  }
+/* Menu mobile */
+.mobileMenu {
+  margin-top: 8px;
+  transform-origin: top;
+}
 
-  .navbar a {
-    margin-left: 0;
-    margin-bottom: 2rem;
-    padding: 0.5rem 0;
-    font-size: 1.8rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
+.mobileList {
+  padding: 8px;
+  list-style: none;
+}
 
-  .navbar a.active {
-    color: #a78bfa;
-  }
+.mobileLink {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+}
 
-  .navbar a::after {
+.mobileLinkActive {
+  background: var(--main-color);
+  color: #0f0f0f;
+}
+
+.mobileIndex {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.mobileLinkActive .mobileIndex {
+  color: rgba(15, 15, 15, 0.6);
+}
+
+@media (min-width: 768px) {
+  .links {
+    display: block;
+  }
+  .burger,
+  .mobileMenu {
     display: none;
   }
-}
-
-
-.nav {
-  width: 100%;
-  max-width: 1075px;        /* lebar kapsul, ubah sesuai selera */
-  --pn-item-gap: 10px;      /* jarak antar item, bawaan cuma 2px */
-}
-
-/* Menu ditaruh di tengah kapsul, bukan mepet logo */
-.nav :global(.pill-nav__bar) {
-  margin: 0 auto;
-}
-
-/* Elemen kosong seukuran logo di sisi kanan, supaya menu benar-benar di tengah */
-.nav:not([data-collapsed])::after {
-  content: "";
-  flex: none;
-  width: var(--pn-inner);
 }

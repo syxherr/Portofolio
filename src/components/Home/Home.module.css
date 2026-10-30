@@ -1,10 +1,10 @@
-
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--bg-color);
-  gap: 1rem;
+  margin-top: 3rem;
+  gap: 5rem;
 }
 
 .homeContent {
@@ -51,6 +51,17 @@
   padding: 0.3rem 1.2rem;
   border-radius: 99px;
   margin-bottom: 0.5rem;
+}
+
+.photoGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.photoGroup .openBadge {
+  margin-bottom: 0;
 }
 
 .textType {
@@ -127,7 +138,6 @@
 .kicker {
   font-size: 20px;
   font-weight: 600;
-  margin-top: 14px;
 }
 
 .aboutCols {

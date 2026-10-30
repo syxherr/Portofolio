@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   return (
-    <section className={styles.contact}>
+    <section className={styles.contact} id="contact">
       <div className={styles.card}>
         <h2 className={styles.title}>
           Want to discuss further? <span className={styles.highlight}>Contact</span> me!
