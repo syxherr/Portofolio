@@ -15,12 +15,13 @@
 }
 
 .bar {
-  height: 56px;
-  display: flex;
-  align-items: center;
+  color-scheme: dark;
+}
+
+/* GlassSurface membungkus isi di dalam div ini, jadi tata letak navbar diatur di sini */
+.bar :global(.glass-surface__content) {
   justify-content: space-between;
   padding: 0 8px;
-  overflow: hidden;
 }
 
 /* Logo */
@@ -134,6 +135,40 @@
   color: rgba(15, 15, 15, 0.6);
 }
 
+.mobileGlass {
+  color-scheme: dark;
+}
+
+.mobileGlass :global(.glass-surface__content) {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.mobileToc {
+  padding: 8px 20px 12px 10px;
+}
+
+.mobileToc :global(.branched-menu) {
+  --bm-muted: rgba(255, 255, 255, 0.85);
+}
+
+/* globals.css mewarnai semua span jadi ungu; di sini label menu ikut warna tombolnya */
+.mobileToc :global(.branched-menu__label),
+.mobileToc :global(.branched-menu__icon) {
+  color: inherit;
+}
+
+/* sembunyikan judul beserta garis rel dan penandanya, sisakan daftar linknya saja */
+.mobileToc :global(.branched-menu__head),
+.mobileToc :global(.branched-menu__marker) {
+  display: none;
+}
+
+.mobileToc :global(.branched-menu)::before {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .links {
     display: block;
@@ -142,4 +177,17 @@
   .mobileMenu {
     display: none;
   }
+}
+
+/* Mode frosted (Safari, Firefox, emulator iPhone): buang kabut putih, ganti tint gelap */
+.bar:global(.glass-surface--fallback),
+.mobileGlass:global(.glass-surface--fallback) {
+  background: rgb(15 15 18 / 0.55);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  backdrop-filter: blur(14px) saturate(1.6);
+}
+
+.bar :global(.glass-surface__sheen),
+.mobileGlass :global(.glass-surface__sheen) {
+  display: none;
 }

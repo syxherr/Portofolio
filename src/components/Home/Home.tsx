@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import TextType from "../../styles/Animation/TextType";
-import MagicBento from "../MagicBento/MagicBento";
+import MagicBento from "../c/MagicBento";
 import { FaInstagram } from "react-icons/fa6";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";

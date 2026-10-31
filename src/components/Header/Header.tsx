@@ -1,6 +1,7 @@
 import { AnimatePresence, animate, motion } from 'motion/react';
 import { useEffect, useState, type MouseEvent } from 'react';
-import LiquidGlass from '../LiquidGlass/LiquidGlass';
+import GlassSurface from '../GlassSurface/GlassSurface';
+import BranchedMenu from '../BranchedMenu/BranchedMenu';
 import { useScrollActive } from '../../hooks/useScrollActive';
 import styles from './Header.module.css';
 
@@ -8,8 +9,16 @@ const NAV_ITEMS = [
   { id: 'home', label: 'About', href: '#home' },
   { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'project', label: 'Projects', href: '#project' },
+  { id: 'skills', label: 'Skills', href: '#skills' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];
+
+const TOC_ITEMS = [
+  { label: '', children: NAV_ITEMS.map((n) => ({ value: n.id, label: n.label })) },
+];
+
+// Refraksi (SVG filter) hanya untuk perangkat dengan mouse; di layar sentuh pakai tampilan frosted supaya scroll tetap ringan.
+const CAN_REFRACT = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
 
 const SECTION_IDS = NAV_ITEMS.map((n) => n.id);
 const pill = { type: 'spring', stiffness: 420, damping: 34, mass: 0.8 } as const;
@@ -17,10 +26,10 @@ const pill = { type: 'spring', stiffness: 420, damping: 34, mass: 0.8 } as const
 let scrollControls: { stop: () => void } | null = null;
 
 /** Klik link section: scroll halus ke sana, bukan lompat. */
-function goTo(e: MouseEvent<HTMLAnchorElement>, href: string) {
+function goTo(e: MouseEvent<HTMLAnchorElement> | null, href: string) {
   const el = document.getElementById(href.slice(1));
   if (!el) return;
-  e.preventDefault();
+  e?.preventDefault();
 
   scrollControls?.stop();
   const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
@@ -61,7 +70,17 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.wrap}>
-        <LiquidGlass radius={28} className={styles.bar}>
+        <GlassSurface
+          width="100%"
+          height={56}
+          borderRadius={28}
+          refraction={CAN_REFRACT}
+          
+          borderWidth={0.15}
+          displace={0.5}
+          backgroundOpacity={0.1}
+          className={styles.bar}
+        >
           <a href="#home" onClick={(e) => goTo(e, '#home')} className={styles.brand} aria-label="Shaskia — home">
             <span className={styles.mark}>S</span>
           </a>
@@ -100,7 +119,7 @@ export default function Header() {
               <motion.line x1="5" x2="19" initial={false} animate={open ? { y1: 19, y2: 5 } : { y1: 15, y2: 15 }} />
             </svg>
           </button>
-        </LiquidGlass>
+        </GlassSurface>
 
         <AnimatePresence>
           {open && (
@@ -112,33 +131,34 @@ export default function Header() {
               transition={{ type: 'spring', stiffness: 320, damping: 28 }}
               className={styles.mobileMenu}
             >
-              <LiquidGlass radius={24}>
-                <ul className={styles.mobileList}>
-                  {NAV_ITEMS.map((item, i) => {
-                    const on = item.id === activeSection;
-                    return (
-                      <motion.li
-                        key={item.id}
-                        initial={{ opacity: 0, x: -8 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.04 * i + 0.05 }}
-                      >
-                        <a
-                          href={item.href}
-                          onClick={(e) => {
-                            setOpen(false);
-                            goTo(e, item.href);
-                          }}
-                          className={`${styles.mobileLink} ${on ? styles.mobileLinkActive : ''}`}
-                        >
-                          {item.label}
-                          <span className={styles.mobileIndex}>0{i + 1}</span>
-                        </a>
-                      </motion.li>
-                    );
-                  })}
-                </ul>
-              </LiquidGlass>
+              <GlassSurface
+                width="100%"
+                height="auto"
+                borderRadius={24}
+                refraction={CAN_REFRACT}
+                displace={0.5}
+                backgroundOpacity={0.1}
+                className={styles.mobileGlass}
+              >
+                <div className={styles.mobileToc}>
+                  <BranchedMenu
+                    items={TOC_ITEMS}
+                    defaultOpen={0}
+                    defaultActive={activeSection}
+                    onSelect={(value) => {
+                      setOpen(false);
+                      goTo(null, `#${value}`);
+                    }}
+                    color="#ffffff"
+                    accentColor="#a78bfa"
+                    lineColor="#6b6390"
+                    width={320}
+                    rowHeight={44}
+                    indent={44}
+                    fontSize={18}
+                  />
+                </div>
+              </GlassSurface>
             </motion.div>
           )}
         </AnimatePresence>
