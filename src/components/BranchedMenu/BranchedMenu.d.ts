@@ -1,0 +1,37 @@
+import type { ComponentType } from 'react';
+
+export type BranchedMenuChild = {
+  value: string;
+  label: string;
+  icon?: unknown;
+};
+
+export type BranchedMenuItem = {
+  label: string;
+  value?: string;
+  children?: BranchedMenuChild[];
+};
+
+export type BranchedMenuProps = {
+  items?: BranchedMenuItem[];
+  defaultOpen?: number | number[];
+  defaultActive?: string;
+  onSelect?: (value: string, item: BranchedMenuChild | BranchedMenuItem) => void;
+  onToggle?: (index: number, open: boolean) => void;
+  color?: string;
+  accentColor?: string;
+  lineColor?: string;
+  width?: number;
+  rowHeight?: number;
+  indent?: number;
+  trunk?: number;
+  radius?: number;
+  lineWidth?: number;
+  fontSize?: number;
+  drawDuration?: number;
+  foldDuration?: number;
+  className?: string;
+};
+
+declare const BranchedMenu: ComponentType<BranchedMenuProps>;
+export default BranchedMenu;
