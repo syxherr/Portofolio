@@ -1,0 +1,85 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px 48px;
+  background: #16141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.total {
+  margin-top: 10px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.totalText {
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.link {
+  flex: none;
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.link:hover {
+  color: var(--main-color);
+}
+
+.graph {
+  width: 100%;
+  overflow: visible;
+}
+
+.month {
+  fill: rgba(255, 255, 255, 0.5);
+  font-size: 8px;
+}
+
+.cell {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.graph[data-in="true"] .cell {
+  opacity: var(--o);
+}
+
+.cellOn {
+  fill: var(--main-color);
+}
+
+.cellOff {
+  fill: #fff;
+}
+
+.hint {
+  margin-top: 12px;
+  height: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
