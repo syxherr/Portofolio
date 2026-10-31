@@ -1,49 +1,187 @@
 .skills {
-  padding-bottom: 100px;
+  min-height: auto;
   background-color: var(--second-bg-color);
+  /* globals.css membatasi isi section 1240px; di sini dilebarkan jadi 1600px */
+  padding-inline: max(var(--gutter), calc((100% - 1350px) / 2 + var(--gutter)));
+  padding-top: 3.5rem;
 }
 
-.skills h2 {
-  margin-bottom: 4rem;
-}
-
-.skillsContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.intro {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 4.5rem;
-}
-
-.skillsBox {
-  background-color: var(--bg-color);
-  padding: 2rem 3rem;
-  border-radius: 2rem;
+  gap: 14px;
   text-align: center;
-  border: 0.5rem solid var(--bg-color);
-  transition: 0.5s ease;
+  margin-bottom: 30px;
 }
 
-.skillsBox:hover {
+.eyebrow {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--main-color);
+}
+
+.intro h2 {
+  margin: 0;
+}
+
+.lead {
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b4b4bb;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 370px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* ===== kartu ala terminal ===== */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-color);
+  border: 1px solid #2e2e33;
+  border-radius: 12px;
+}
+
+.cardBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: #161618;
+  border-bottom: 1px solid #2e2e33;
+}
+
+.cardBar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #33303f;
+}
+
+.cardBar i:first-child {
+  background: var(--main-color);
+}
+
+.cardBar i:nth-child(2) {
+  background: #4b4560;
+}
+
+.cardBar p {
+  margin-left: 8px;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: #a8a3b8;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+/* ===== kotak kiri (tools / AnimatedList) ===== */
+.toolsTitle {
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* globals.css mewarnai semua span jadi ungu, jadi judul baris dikembalikan ke warna teks */
+.toolsCard :global(.animated-list__title) {
+  color: var(--al-ink);
+}
+
+/* ===== kotak kanan: kolom-kolom skill ===== */
+.groups {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: start;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 12px 16px;
+  background: #161618;
+  border: 1px solid #26262a;
+  border-radius: 16px;
+}
+
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.groupHead h3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.groupHead em {
+  font-style: normal;
+  font-size: 11px;
+  color: #6f6f78;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #f2f2f4;
+  background: #1d1d20;
+  border: 1px solid #34343a;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.chip svg {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #8b8b94;
+  transition: color 0.3s ease;
+}
+
+.chip:hover {
   border-color: var(--main-color);
-  transform: scale(1.02);
-  box-shadow: 0 0 25px var(--main-color);
+  transform: translateY(-2px);
 }
 
-.skillsBox img {
-  width: 100%;
-  border-radius: 2rem;
+.chip:hover svg {
+  color: var(--main-color);
 }
 
-@media (max-width: 1285px) {
-  .skillsContainer {
-    padding-bottom: 7rem;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 5rem;
+/* layar tengah dan HP: kolom menyesuaikan lebar supaya tidak terlalu sempit */
+@media (max-width: 1200px) {
+  .groups {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
 
+/* di bawah 991px kotak tools dan kotak skills menumpuk ke bawah */
 @media (max-width: 991px) {
-  .skills {
-    padding-bottom: 7.5rem;
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
