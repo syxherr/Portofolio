@@ -1,9 +1,8 @@
-// src/hooks/useScrollReveal.js
 import { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 
 export default function useScrollReveal() {
-    useEffect(() => {
+  useEffect(() => {
     const sr = ScrollReveal({
       distance: "80px",
       duration: 2000,
