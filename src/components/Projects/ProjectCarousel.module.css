@@ -348,11 +348,17 @@
 
 .activityWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
   width: 100%;
-  max-width: 850px;
+  max-width: 1500px;
   margin: 0 auto;
+}
+
+.activityWrapper > * {
+  flex: 1;
+  min-width: 0;
 }
 
 .activityCard {
@@ -383,7 +389,7 @@
 
 @media (max-width: 900px) {
   .activityWrapper {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 
