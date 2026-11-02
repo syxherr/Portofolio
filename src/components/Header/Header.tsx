@@ -5,6 +5,7 @@ import BranchedMenu from '../BranchedMenu/BranchedMenu';
 import { useScrollActive } from '../../hooks/useScrollActive';
 import styles from './Header.module.css';
 
+
 const NAV_ITEMS = [
   { id: 'home', label: 'About', href: '#home' },
   { id: 'experience', label: 'Experience', href: '#experience' },
@@ -25,8 +26,7 @@ const pill = { type: 'spring', stiffness: 420, damping: 34, mass: 0.8 } as const
 
 let scrollControls: { stop: () => void } | null = null;
 
-/** Klik link section: scroll halus ke sana, bukan lompat. */
-function goTo(e: MouseEvent<HTMLAnchorElement> | null, href: string) {
+export function goTo(e: MouseEvent<HTMLAnchorElement> | null, href: string) {
   const el = document.getElementById(href.slice(1));
   if (!el) return;
   e?.preventDefault();
