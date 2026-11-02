@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   background: var(--bg-color);
-  margin-top: 3rem;
+  margin-top: 0.5rem;
   gap: 5rem;
 }
 
@@ -95,18 +95,10 @@
   z-index: 0;
 }
 
-.curtainBtn:hover::before {
-  transform: translateX(0) skewX(-30deg);
-}
-
 .curtainText {
   position: relative;
   z-index: 1;
   transition: color 0.3s ease;
-}
-
-.curtainBtn:hover .curtainText {
-  color: black;
 }
 
 .aboutWrap {
@@ -284,7 +276,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
 
@@ -326,11 +319,21 @@
   transition: 0.3s ease-in-out;
 }
 
-.sosmed a:hover {
-  color: var(--main-color);
-  transform: scale(1.02);
-  border-color: var(--main-color);
-  box-shadow: 0 0 0.7rem var(--main-color);
+@media (hover: hover) {
+  .curtainBtn:hover::before {
+    transform: translateX(0) skewX(-30deg);
+  }
+
+  .curtainBtn:hover .curtainText {
+    color: black;
+  }
+
+  .sosmed a:hover {
+    color: var(--main-color);
+    transform: scale(1.02);
+    border-color: var(--main-color);
+    box-shadow: 0 0 0.7rem var(--main-color);
+  }
 }
 
 .photoCol .profileImg {
@@ -391,6 +394,7 @@
     width: 4rem;
     height: 4rem;
     margin: 0.5rem;
+    
   }
 
   .aboutCard {
@@ -412,10 +416,11 @@
 }
 
 @media (max-width: 768px) {
-  .home {
+    .home {
     flex-direction: column-reverse;
     align-items: flex-start;
     margin-bottom: 7.5rem;
+    padding-inline: 20px;
   }
 
   .homeContent h3,
@@ -429,6 +434,7 @@
 
   .homeContent p {
     margin-right: 0;
+    text-align: left;
   }
 
   .aboutWrap {
@@ -450,9 +456,8 @@
 
   .profileImg img {
     width: 45vw;
-    align-items: flex-start;
+    max-width: 220px;
     border-radius: 10%;
-    margin-bottom: 6rem;
   }
 
   .profileBadge,
@@ -466,29 +471,188 @@
 }
 
 @media (max-width: 480px) {
+  .homeContent h1 {
+    font-size: 4rem;
+  }
+
   .homeContent p {
     font-size: 1.5rem;
-    margin-right: 1.9rem;
+    margin-right: 0;
+  }
+
+  .aboutCard {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .aboutTitle {
+    font-size: 28px;
+  }
+
+  .facts {
+    gap: 8px;
+  }
+
+  .fact {
+    padding: 12px;
   }
 
   .textType {
-    min-width: 25rem;
+    min-width: 0;
   }
 }
 
 .aboutWrap :global(.magic-bento__text) {
   flex: 1;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 0;
 }
 
-
 .aboutWrap :global(.magic-bento__cell):nth-child(3) :global(.magic-bento__content) {
-  justify-content: center; /* kelompok label + judul di tengah kartu */
-  gap: 4px;                /* jarak label ke judul, dulu 12px */
+  justify-content: center;
+  gap: 4px;
 }
 
 .aboutWrap :global(.magic-bento__cell):nth-child(3) :global(.magic-bento__text) {
-  flex: none;      /* batalkan flex: 1 dari aturan centering sebelumnya */
+  flex: none;
   margin-top: 0;
+}
+
+.mHome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.mTitle {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+
+.mTop {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.mPhoto {
+  width: 176px;
+  flex-shrink: 0;
+}
+
+.mInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mCard {
+  flex: 1;
+  box-sizing: border-box;
+  background: var(--second-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.mCard .infoCard {
+  gap: 8px;
+}
+
+.mCard .infoLabel {
+  font-size: 12px;
+}
+
+.mCard .infoTitle {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.mCard .infoRole {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.mHome .openBadge {
+  margin-bottom: 0;
+}
+
+.mAbout {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--second-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.08);
+}
+
+.mAbout .kicker {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.mAbout .textType {
+  min-width: 0;
+}
+
+.mAbout .aboutCols {
+  margin-top: 20px;
+  gap: 14px;
+}
+
+.mAbout .aboutCols p {
+  font-size: 14px;
+}
+
+.mAbout .aboutCols p span {
+  color: #fff;
+}
+
+.mActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.mCv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 12px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mActions .sosmed {
+  margin-top: 0;
+}
+
+.mActions .sosmed p {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.mActions .sosmed a {
+  width: 44px;
+  height: 44px;
+  margin: 0 8px 0 0;
+  font-size: 22px;
 }
