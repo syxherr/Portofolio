@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import SideRays from "../../styles/Animation/SideRays";
-import BlurText from "../../styles/Animation/BlurText";
+import SideRays from "../../../styles/Animation/SideRays/SideRays";
+import BlurText from "../../../styles/Animation/BlurText/BlurText";
+import TextType from "../../../styles/Animation/TextType/TextType";
 import styles from "./Landing.module.css";
-import TextType from "../../styles/Animation/TextType";
 
 type LandingProps = {
   onContinue: () => void;

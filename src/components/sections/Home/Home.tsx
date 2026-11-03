@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
-import TextType from "../../styles/Animation/TextType";
-import MagicBento from "../c/MagicBento";
+import TextType from "../../../styles/Animation/TextType/TextType";
+import MagicBento from "../../../ui/MagicBento/MagicBento";
+import TiltedCard from "../../../ui/TiltedCard/TiltedCard";
+import useScrollReveal from "../../../hooks/useScrollReveal";
 import { FaInstagram } from "react-icons/fa6";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
-import TiltedCard from "../../ui/TiltedCard";
-import useScrollReveal from "../../hooks/useScrollReveal";
 
 function useIsMobile(breakpoint = 768) {
   const query = `(max-width: ${breakpoint}px)`;

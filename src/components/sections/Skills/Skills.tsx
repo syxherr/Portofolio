@@ -26,7 +26,7 @@ import {
   SiTypescript,
   SiVite,
 } from 'react-icons/si';
-import AnimatedList from '../AnimatedList/AnimatedList';
+import AnimatedList from '../../../ui/AnimatedList/AnimatedList';
 import styles from './Skills.module.css';
 
 type Skill = { name: string; icon?: IconType };

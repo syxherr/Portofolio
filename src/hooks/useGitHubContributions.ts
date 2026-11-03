@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Day } from "../components/Projects/ContributionCard";
+import type { Day } from "../components/sections/Projects/ContributionCard";
 
 export default function useGitHubContributions(username: string) {
   const [data, setData] = useState<{ days: Day[]; total: number } | null>(null);

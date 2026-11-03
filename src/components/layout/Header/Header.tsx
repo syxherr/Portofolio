@@ -1,8 +1,8 @@
 import { AnimatePresence, animate, motion } from 'motion/react';
 import { useEffect, useState, type MouseEvent } from 'react';
-import GlassSurface from '../GlassSurface/GlassSurface';
-import BranchedMenu from '../BranchedMenu/BranchedMenu';
-import { useScrollActive } from '../../hooks/useScrollActive';
+import GlassSurface from '../../../ui/GlassSurface/GlassSurface';
+import BranchedMenu from '../../../ui/BranchedMenu/BranchedMenu';
+import { useScrollActive } from '../../../hooks/useScrollActive';
 import styles from './Header.module.css';
 
 

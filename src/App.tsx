@@ -1,16 +1,15 @@
 import './styles/globals.css';
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-// import Organization from './components/Organization/Organization';
-import Projects from './components/Projects/ProjectCarousel';
-import Skills from './components/Skills/Skills';
-import Experience from './components/Experience/Experience';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
+import { useState,  } from "react";
+import Header from './components/layout/Header/Header';
+import Home from './components/sections/Home/Home';
+// import Organization from './components/sections/Organization/Organization';
+import Projects from './components/sections/Projects/ProjectCarousel';
+import Skills from './components/sections/Skills/Skills';
+import Experience from './components/sections/Experience/Experience';
+import Contact from './components/sections/Contact/Contact';
+import Footer from './components/layout/Footer/Footer';
+import Landing from './components/sections/Landing/Landing';
 import ScrollIndicator from './styles/Animation/ScrollIndicator';
-import Landing from './components/Landing/Landing';
-import { useState } from 'react';
-
 // Ubah ke true kalau mau landing dihidupkan lagi
 const SHOW_LANDING = false;
 
