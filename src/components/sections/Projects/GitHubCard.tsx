@@ -1,5 +1,5 @@
 import ContributionCard from "./ContributionCard";
-import useGitHubContributions from "../../hooks/useGitHubContributions";
+import useGitHubContributions from "../../../hooks/useGitHubContributions";
 
 export default function GitHubCard() {
   const data = useGitHubContributions("syxherr");

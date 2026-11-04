@@ -14,7 +14,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styles from "./ProjectCarousel.module.css";
-import useScrollReveal from "../../hooks/useScrollReveal";
+import useScrollReveal from '../../../hooks/useScrollReveal';
 
 type Project = {
   project: string;

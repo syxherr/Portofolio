@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import useScrollReveal from '../../../hooks/useScrollReveal';
 import styles from './Experience.module.css';
 
 type TimelineItem = {
@@ -24,6 +24,7 @@ const TIMELINE_DATA: TimelineItem[] = [
       'Integrated web features with backend REST APIs.',
       'Synchronized local application data with data stored on the server.',
       'Handled data mapping across different sources/systems to prevent inconsistencies during cross-system processing.',
+      'Conducted competitive benchmarking of several POS applications in Indonesia to inform the development of a multi-industry POS application.',
     ],
   },
   {
@@ -92,7 +93,7 @@ useMotionValueEvent(scrollYProgress, 'change', (v) => setAtEnd(v > 0.60));
             </p>
             <p className={styles.date}>Sep 2021 - Nov 2025</p>
             <p className={styles.thesis}>
-  Thesis: Pembangunan Aplikasi Finfix Untuk Pencatatan Keuangan Berbasis Android.
+  Thesis: <em>Pembangunan Aplikasi Finfix Untuk Pencatatan Keuangan Berbasis Android.</em>
 </p>
 
 <div className={styles.divider} />

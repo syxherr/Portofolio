@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import ContributionCard, { type Day } from "./ContributionCard";
-import raw from "../../data/gitlab-calendar.json";
+import raw from "../../../data/gitlab-calendar.json";
 
 function toLevel(count: number): Day["level"] {
   if (count === 0) return 0;

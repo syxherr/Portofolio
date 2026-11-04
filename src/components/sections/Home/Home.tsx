@@ -35,7 +35,7 @@ const WORKING = {
 const INTERESTED = {
   label: "Interested in",
   title: "Front-End or UI/UX",
-  role: "Vite · CSS Modules · Motion",
+  role: "React · TypeScript · Figma",
 };
 
 function InfoCard({
