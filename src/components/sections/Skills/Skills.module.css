@@ -84,13 +84,6 @@
   padding: 20px;
 }
 
-/* ===== kotak kiri (tools / AnimatedList) ===== */
-.toolsTitle {
-  margin-bottom: 18px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
 /* globals.css mewarnai semua span jadi ungu, jadi judul baris dikembalikan ke warna teks */
 .toolsCard :global(.animated-list__title) {
   color: var(--al-ink);
