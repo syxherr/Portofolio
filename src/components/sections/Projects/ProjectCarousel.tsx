@@ -21,8 +21,8 @@ type Project = {
   category: string;
   role: string;
   roleColor: string;
-  company: string | null;
-  companyColor: string | null;
+  projectType: string | null;
+  projectTypeColor: string | null;
   status: string | null;
   statusColor: string | null;
   tagline: string;
@@ -38,9 +38,9 @@ const projects: Project[] = [
     project: "Task Management",
     category: "Front-End",
     role: "Front-End Developer",
-    roleColor: "react",
-    company: null,
-    companyColor: null,
+    roleColor: "blue",
+    projectType: null,
+    projectTypeColor: null,
     status: null,
     statusColor: "onprogress",
     tagline: "Task management with drag or drop like Kanban board.",
@@ -54,9 +54,9 @@ const projects: Project[] = [
     project: "Pokemon Arena",
     category: "Front-End",
     role: "Front-End Developer",
-    roleColor: "react",
-    company: null,
-    companyColor: null,
+    roleColor: "blue",
+    projectType: null,
+    projectTypeColor: null,
     status: null,
     statusColor: null,
     tagline:
@@ -72,8 +72,8 @@ const projects: Project[] = [
     category: "UI/UX",
     role: "UI/UX",
     roleColor: "pink",
-    company: "OXI",
-    companyColor: "orange",
+    projectType: "Freelance",
+    projectTypeColor: "orange",
     status: null,
     statusColor: null,
     tagline: "Mobile UI/UX design for a motorcycle community app.",
@@ -88,8 +88,8 @@ const projects: Project[] = [
     category: "UI/UX",
     role: "UI/UX",
     roleColor: "pink",
-    company: "Freelance",
-    companyColor: "orange",
+    projectType: "Freelance",
+    projectTypeColor: "orange",
     status: null,
     statusColor: null,
     tagline: "Marketplace Web Application UI/UX Design",
@@ -104,8 +104,8 @@ const projects: Project[] = [
     category: "UI/UX",
     role: "UI/UX",
     roleColor: "pink",
-    company: "Freelance",
-    companyColor: "orange",
+    projectType: "Personal Project",
+    projectTypeColor: "yellow",
     status: null,
     statusColor: "onprogress",
     tagline: "Mobile UI/UX design for a food delivery app.",
@@ -119,9 +119,9 @@ const projects: Project[] = [
     project: "FinFix",
     category: "Other",
     role: "Mobile Developer",
-    roleColor: "kotlin",
-    company: "Bangkit Academy Capstone",
-    companyColor: "red",
+    roleColor: "purple",
+    projectType: "Bangkit Academy Capstone",
+    projectTypeColor: "green",
     status: null,
     statusColor: null,
     tagline: "Mobile application for tracking income and expenses.",
@@ -160,7 +160,7 @@ function CardContent({ p, progressRef }: CardContentProps) {
       </div>
 
       <div className={styles.cardBody}>
-        {(p.role || p.company) && (
+        {(p.role || p.projectType) && (
           <div className={styles.metaRow}>
             {p.role && (
               <span
@@ -169,11 +169,11 @@ function CardContent({ p, progressRef }: CardContentProps) {
                 {p.role}
               </span>
             )}
-            {p.company && (
+            {p.projectType && (
               <span
-                className={`${styles.metaBadge} ${styles[p.companyColor ?? ""] ?? ""}`}
+                className={`${styles.metaBadge} ${styles[p.projectTypeColor ?? ""] ?? ""}`}
               >
-                {p.company}
+                {p.projectType}
               </span>
             )}
           </div>

@@ -206,12 +206,14 @@
   font-size: 11px;
 }
 
-.react {
+
+css
+.cyan {
   border-color: rgba(97, 219, 251, 0.25);
   color: #61dbfb;
 }
 
-.kotlin {
+.purple {
   border-color: #d264fe;
   color: #d264fe;
 }
@@ -231,6 +233,31 @@
 .red {
   border-color: #ec5c5c;
   color: #ec5c5c;
+}
+
+.green {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+.blue {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+.yellow {
+  border-color: #facc15;
+  color: #facc15;
+}
+
+.teal {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+.cyan {
+  border-color: rgba(97, 219, 251, 0.25);
+  color: #61dbfb;
 }
 
 .desc {

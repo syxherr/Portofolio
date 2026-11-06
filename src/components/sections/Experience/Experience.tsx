@@ -20,11 +20,11 @@ const TIMELINE_DATA: TimelineItem[] = [
     title: 'Fullstack Developer Intern',
     org: 'Makers Institute',
     points: [
-      'Implemented UI components based on Figma designs.',
-      'Integrated web features with backend REST APIs.',
+      'Built reusable UI components with React, TypeScript, and MUI for a Point of Sale (POS), reducing duplicated code.',
+      'Collaborated with backend developers to integrate frontend features with existing REST APIs.',
       'Synchronized local application data with data stored on the server.',
-      'Handled data mapping across different sources/systems to prevent inconsistencies during cross-system processing.',
-      'Conducted competitive benchmarking of several POS applications in Indonesia to inform the development of a multi-industry POS application.',
+      'Mapped and normalized data from multiple systems into a consistent frontend format, preventing mismatches and display errors during cross-system processing.',
+      'Debugged API integration issues using browser DevTools (Network tab, request/response inspection) to pinpoint root causes and resolve problems faster.',
     ],
   },
   {

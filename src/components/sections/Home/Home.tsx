@@ -100,7 +100,7 @@ function SocialLinks({ className }: { className?: string }) {
       <p>Find Me On</p>
 
       <a
-        href="https://instagram.com/username"
+        href="https://www.instagram.com/shaskiapv/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"

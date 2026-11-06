@@ -32,7 +32,7 @@ export default function GitLabCalendar() {
     <ContributionCard
       label="GitLab activity"
       linkLabel="GitLab"
-      href="https://gitlab.com/syxherr" // ganti dengan profil GitLab-mu
+      href="https://gitlab.com/syxherr"
       days={days}
       total={total}
     />
