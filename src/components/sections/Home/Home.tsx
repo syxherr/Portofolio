@@ -24,7 +24,7 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-const TITLE = "I turn designs into interfaces people enjoy using.";
+// (TITLE dihapus)
 
 const WORKING = {
   label: "Working at",
@@ -81,15 +81,17 @@ function IntroParagraphs() {
   return (
     <div className={styles.aboutCols}>
       <p>
-        Welcome to my Portfolio! Fresh graduate in{" "}
-        <span>Informatics Engineering</span> from Universitas Teknologi Bandung
-        with a strong passion for <span>Technology</span> and{" "}
-        <span>Design</span>.
+        Welcome to my portfolio! <span>Informatics Engineering</span> graduate
+        from <span>Universitas Teknologi Bandung</span> with experience building
+        web applications with <span>React</span>.
       </p>
       <p>
-        Skilled in Web Development and UI/UX. By leveraging my skills, I am
-        ready to contribute and give my best results.
+        I&apos;m passionate about <span>technology</span> and{" "}
+        <span>design</span>, and I&apos;m seeking a{" "}
+        <span>full-stack developer</span> role where I can work on real
+        problems and keep learning on the job.
       </p>
+      <p>Feel free to scroll down and check out my work!</p>
     </div>
   );
 }
@@ -100,7 +102,7 @@ function SocialLinks({ className }: { className?: string }) {
       <p>Find Me On</p>
 
       <a
-        href="https://www.instagram.com/shaskiapv/"
+        href="https://instagram.com/username"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -143,8 +145,8 @@ const BENTO_ITEMS = [
     colSpan: 2,
     content: (
       <div>
+        <OpenBadge />
         <Kicker />
-        <h1 className={styles.aboutTitle}>{TITLE}</h1>
         <IntroParagraphs />
       </div>
     ),
@@ -184,42 +186,40 @@ export default function Home() {
   const isMobile = useIsMobile();
 
   if (isMobile) {
-  return (
-    <section className={styles.home} id="home">
-      <div className={styles.mHome}>
-        <h1 className={styles.mTitle}>{TITLE}</h1>
+    return (
+      <section className={styles.home} id="home">
+        <div className={styles.mHome}>
+          <div className={styles.mTop}>
+            <div className={styles.mPhoto}>
+              <TiltedCard
+                imageSrc="/images/profile2.png"
+                altText="Shaskia"
+                captionText=""
+                containerWidth="176px"
+                containerHeight="220px"
+                imageWidth="176px"
+                imageHeight="220px"
+                rotateAmplitude={12}
+                scaleOnHover={1.03}
+                showMobileWarning={false}
+                showTooltip={false}
+                displayOverlayContent
+                overlayContent={<BandungTag small />}
+              />
+            </div>
 
-        <div className={styles.mTop}>
-          <div className={styles.mPhoto}>
-            <TiltedCard
-              imageSrc="/images/profile2.png"
-              altText="Shaskia"
-              captionText=""
-              containerWidth="176px"
-              containerHeight="220px"
-              imageWidth="176px"
-              imageHeight="220px"
-              rotateAmplitude={12}
-              scaleOnHover={1.03}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent
-              overlayContent={<BandungTag small />}
-            />
+            <div className={styles.mInfo}>
+              <div className={styles.mCard}>
+                <InfoCard {...INTERESTED} />
+              </div>
+              <div className={styles.mCard}>
+                <InfoCard {...WORKING} />
+              </div>
+            </div>
           </div>
 
-          <div className={styles.mInfo}>
-            <div className={styles.mCard}>
-              <InfoCard {...INTERESTED} />
-            </div>
-            <div className={styles.mCard}>
-              <InfoCard {...WORKING} />
-            </div>
-          </div>
-        </div>
-
-        <OpenBadge />
           <div className={styles.mAbout}>
+            <OpenBadge />
             <Kicker />
             <IntroParagraphs />
 
@@ -304,7 +304,6 @@ export default function Home() {
               }
             />
           </div>
-          <OpenBadge />
         </div>
 
         <SocialLinks className={`${styles.sosmed} sr-bottom`} />
